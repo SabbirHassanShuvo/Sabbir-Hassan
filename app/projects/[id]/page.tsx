@@ -157,159 +157,19 @@ export default async function ProjectPage({ params }: Props) {
             ))}
           </div>
 
-          {/* Problem / Solution — 2 col */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="p-6 bg-white/[0.02] backdrop-blur-md border border-white/10 rounded-2xl transition-all duration-300 hover:bg-[rgba(167,139,250,0.06)] hover:border-white/20">
-              <p className="text-xs uppercase tracking-widest text-[#a78bfa] mb-3">
-                The Problem
-              </p>
-              <p className="text-base text-white/55 leading-relaxed">
-                {caseStudy.problem}
-              </p>
-            </div>
-            <div className="p-6 bg-white/[0.02] backdrop-blur-md border border-white/10 rounded-2xl transition-all duration-300 hover:bg-[rgba(167,139,250,0.06)] hover:border-white/20 hover:shadow-[0_8px_32px_rgba(167,139,250,0.12)]">
-              <p className="text-xs uppercase tracking-widest text-[#a78bfa] mb-3">
-                The Solution
-              </p>
-              <p className="text-base text-white/55 leading-relaxed">
-                {caseStudy.solution}
-              </p>
-            </div>
-          </div>
+
 
           {/* Overview */}
           <div className="p-6 md:p-8 bg-white/[0.02] backdrop-blur-md border border-white/10 rounded-2xl mb-8 transition-all duration-300 hover:bg-[rgba(167,139,250,0.06)] hover:border-white/20 hover:shadow-[0_8px_32px_rgba(167,139,250,0.12)]">
             <p className="text-xs uppercase tracking-widest text-[#a78bfa] mb-3">
               Overview
             </p>
-            <p className="text-base text-white/55 leading-relaxed">
+            <div className="text-base text-white/70 leading-relaxed whitespace-pre-wrap">
               {caseStudy.overview}
-            </p>
-          </div>
-
-          {/* ── Video Explain Preview ── */}
-          <div className="p-6 md:p-8 bg-white/[0.02] backdrop-blur-md border border-white/10 rounded-2xl mb-8 transition-all duration-300 hover:bg-[rgba(167,139,250,0.06)] hover:border-white/20 hover:shadow-[0_8px_32px_rgba(167,139,250,0.12)]">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-              <div>
-                <p className="text-xs uppercase tracking-widest text-[#a78bfa] mb-1">
-                  Video Explain Preview
-                </p>
-                <h3 className="text-xl md:text-2xl font-light text-white font-serif">
-                  Project Video Walkthrough &amp; Technical Explanation
-                </h3>
-              </div>
-              {caseStudy.youtubeId && (
-                <a
-                  href={`https://www.youtube.com/watch?v=${caseStudy.youtubeId}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-red-600/10 border border-red-500/30 text-red-400 hover:bg-red-600/20 hover:border-red-500/50 text-xs font-mono tracking-wider transition-all self-start sm:self-auto">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                  </svg>
-                  Watch on YouTube ↗
-                </a>
-              )}
-            </div>
-
-            <div
-              className="relative w-full rounded-2xl overflow-hidden border border-white/10 bg-[#08080a]"
-              style={{ paddingBottom: "56.25%" }}>
-              <iframe
-                className="absolute top-0 left-0 w-full h-full rounded-2xl"
-                src={`https://www.youtube.com/embed/${caseStudy.youtubeId || "dQw4w9WgXcQ"}?rel=0&modestbranding=1&color=white`}
-                title="Project Video Preview & Explanation"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
             </div>
           </div>
 
-          {/* Key Features */}
-          <div className="p-6 md:p-8 bg-white/[0.02] backdrop-blur-md border border-white/10 rounded-2xl mb-8 transition-all duration-300 hover:bg-[rgba(167,139,250,0.06)] hover:border-white/20 hover:shadow-[0_8px_32px_rgba(167,139,250,0.12)]">
-            <p className="text-xs uppercase tracking-widest text-[#a78bfa] mb-5">
-              Key Features
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-              {caseStudy.features.map((feature) => (
-                <div key={feature} className="flex items-center gap-3">
-                  <div className="w-4 h-4 rounded-full border border-[#a78bfa]/40 bg-[#a78bfa]/10 flex items-center justify-center shrink-0">
-                    <Check
-                      className="shrink-0 text-violet-400"
-                      size={8}
-                      strokeWidth={3}
-                    />
-                  </div>
-                  <span className="text-base text-white/60">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          {/* ── Challenges & How I Overcame Them ── */}
-          {caseStudy.challenges && caseStudy.challenges.length > 0 && (
-            <div className="mb-8">
-              <div className="mb-5">
-                <p className="text-[10px] uppercase tracking-widest text-[#a78bfa]">
-                  Challenges & How I Overcame Them
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {caseStudy.challenges.map((challenge, index) => (
-                  <div
-                    key={index}
-                    className="p-6 bg-white/[0.02] backdrop-blur-md border border-white/10 rounded-2xl flex flex-col gap-4 transition-all duration-300 hover:bg-[rgba(167,139,250,0.06)] hover:border-white/20 hover:shadow-[0_8px_32px_rgba(167,139,250,0.12)]">
-                    {/* Challenge header */}
-                    <div className="flex items-start gap-3">
-                      <div className="mt-0.5 w-6 h-6 rounded-lg bg-[#a78bfa]/10 border border-[#a78bfa]/20 flex items-center justify-center shrink-0">
-                        <span className="text-[10px] font-medium text-[#a78bfa]">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                      </div>
-                      <h2 className="text-sm font-medium text-white leading-snug">
-                        {challenge.title}
-                      </h2>
-                    </div>
-
-                    {/* The challenge */}
-                    <div className="pl-9">
-                      <p className="text-xs uppercase tracking-widest text-white/25 mb-1.5">
-                        The Challenge
-                      </p>
-                      <p className="text-base text-white/45 leading-relaxed">
-                        {challenge.description}
-                      </p>
-                    </div>
-
-                    {/* Divider */}
-                    <div className="pl-9">
-                      <div className="h-px w-full bg-white/5" />
-                    </div>
-
-                    {/* How I overcame it */}
-                    <div className="pl-9">
-                      <p className="text-xs uppercase tracking-widest text-[#a78bfa]/60 mb-1.5">
-                        How I Overcame It
-                      </p>
-                      <p className="text-base text-white/55 leading-relaxed">
-                        {challenge.solution}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Impact */}
-          <div className="p-6 md:p-8 bg-[rgba(167,139,250,0.04)] border border-[rgba(167,139,250,0.2)] rounded-2xl mb-8 transition-all duration-300 hover:bg-[rgba(167,139,250,0.08)] hover:border-[rgba(167,139,250,0.35)] hover:shadow-[0_8px_32px_rgba(167,139,250,0.16)]">
-            <p className="text-xs uppercase tracking-widest text-[#a78bfa] mb-3">
-              Impact
-            </p>
-            <p className="text-base text-white/70 leading-relaxed">
-              {caseStudy.impact}
-            </p>
-          </div>
 
           {/* Tech Stack */}
           <div className="p-6 md:p-8 bg-white/[0.02] backdrop-blur-md border border-white/10 rounded-2xl mb-8 transition-all duration-300 hover:bg-[rgba(167,139,250,0.06)] hover:border-white/20 hover:shadow-[0_8px_32px_rgba(167,139,250,0.12)]">
@@ -332,7 +192,7 @@ export default async function ProjectPage({ params }: Props) {
             <p className="text-xs uppercase tracking-widest text-[#a78bfa] mb-5">
               Contributors
             </p>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-wrap items-center gap-6">
               {caseStudy.contributors.map((c) => (
                 <div key={c.name} className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-[rgba(167,139,250,0.15)] border border-[rgba(167,139,250,0.2)] flex items-center justify-center text-xs text-[#a78bfa] font-serif">

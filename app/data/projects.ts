@@ -62,7 +62,26 @@ export const projectsData: Project[] = [
       tagline:
         "Swipe-based community marketplace app for buying, selling & free item pickups with real-time chat, match logic, and paid boost system.",
       overview:
-        "Swipe Sale is a full-stack mobile marketplace application built with swipe-to-match browsing, in-app chat, push notifications, payment integration, and admin portal. Self-hosted on VPS with multi-city scalability, it enables users to seamlessly discover local deals, buy and sell items, and coordinate free community pickups.",
+        `Swipe Sale is a full-stack mobile marketplace application built with swipe-to-match browsing, in-app chat, push notifications, payment integration, and admin portal. Self-hosted on VPS with multi-city scalability, it enables users to seamlessly discover local deals, buy and sell items, and coordinate free community pickups.
+
+The Challenge:
+Traditional classifieds and local marketplace apps suffer from cluttered interfaces, slow communication between buyers and sellers, and lack of engaging discovery mechanisms, making local item discovery and community sharing cumbersome.
+
+The Solution:
+Built a full-stack mobile marketplace featuring an engaging swipe-to-match browsing experience, real-time in-app WebSocket chat, automated push notifications, and a secure payment gateway integration for item boost promotions. Developed a comprehensive admin portal for content moderation, dispute resolution, and platform analytics.
+
+Key Features:
+• Swipe-to-match browsing & item discovery
+• Real-time in-app chat with WebSocket connectivity
+• Push notification system for matches
+• messages & deals
+• Paid boost system & payment gateway integration
+• Free item pickup & community sharing workflows
+• Admin portal for listing moderation & user management
+• Self-hosted VPS infrastructure with multi-city scalability
+
+Impact:
+Delivers a fast, engaging local commerce experience with high user retention through swipe logic, instant buyer-seller connectivity, and scalable multi-city deployment on VPS infrastructure.`,
       problem:
         "Traditional classifieds and local marketplace apps suffer from cluttered interfaces, slow communication between buyers and sellers, and lack of engaging discovery mechanisms, making local item discovery and community sharing cumbersome.",
       solution:
@@ -95,7 +114,8 @@ export const projectsData: Project[] = [
         },
       ],
       contributors: [
-        { name: "Sabbir Hassan", role: "Full Stack Laravel Developer" },
+        { name: "Sabbir Hassan", role: "Backend Laravel" },
+        { name: "Shaed Nur", role: "App Flutter" },
       ],
       technologies: [
         "Laravel",
@@ -139,7 +159,25 @@ export const projectsData: Project[] = [
       tagline:
         "A scalable and production-ready rental management platform built to handle adventure equipment bookings, secure user authentication, and real-time system operations.",
       overview:
-        "Developed a full-stack rental management system for web and mobile applications, featuring secure JWT-based APIs, smart authentication (OTP & social login), and an admin panel with role-based access control. Integrated Stripe for payments, built a payroll system, and implemented real-time chat and notifications using Laravel Reverb (WebSockets).",
+        `Developed a full-stack rental management system for web and mobile applications, featuring secure JWT-based APIs, smart authentication (OTP & social login), and an admin panel with role-based access control. Integrated Stripe for payments, built a payroll system, and implemented real-time chat and notifications using Laravel Reverb (WebSockets).
+
+The Challenge:
+Managing adventure vehicle and equipment rentals required coordinating availability, customer identity verification, payment holds, multi-party communications, and staff payroll across disparate, manual workflows.
+
+The Solution:
+Engineered a robust Laravel backend with JWT-secured RESTful endpoints, OTP authentication, automated booking calendars, Stripe payment handling with webhook listeners, role-based admin controls, and real-time WebSocket communication.
+
+Key Features:
+• Secure JWT-based RESTful API architecture
+• Smart authentication with OTP verification & social login
+• Role-based access control (RBAC) admin panel
+• Stripe payment gateway integration with webhooks
+• Integrated payroll and commission tracking system
+• Real-time chat & notifications using Laravel Reverb (WebSockets)
+• Equipment availability calendar & reservation management
+
+Impact:
+Streamlined end-to-end rental operations from customer booking and security verification to staff payroll and instant owner-renter communication.`,
       problem:
         "Managing adventure vehicle and equipment rentals required coordinating availability, customer identity verification, payment holds, multi-party communications, and staff payroll across disparate, manual workflows.",
       solution:
@@ -172,7 +210,9 @@ export const projectsData: Project[] = [
         },
       ],
       contributors: [
-        { name: "Sabbir Hassan", role: "Backend & Full Stack Developer" },
+        { name: "Sabbir Hassan", role: "Backend" },
+        { name: "Najmul Islam", role: "App" },
+        { name: "Mohammad Rifat", role: "Web" },
       ],
       technologies: [
         "Laravel",
@@ -215,7 +255,27 @@ export const projectsData: Project[] = [
       tagline:
         "An advanced Employee Management System that manages employee records, attendance, roles, and departments with accuracy.",
       overview:
-        "An advanced Employee Management System that manages employee records, attendance, roles, and departments with accuracy. It offers secure access control and a clean dashboard to support efficient HR operations.",
+        `An advanced Employee Management System that manages employee records, attendance, roles, and departments with accuracy. It offers secure access control and a clean dashboard to support efficient HR operations.
+
+The Challenge:
+Manual employee record keeping, attendance logging, and paper-based approval workflows caused administrative delays, payroll discrepancies, and security vulnerabilities in role access.
+
+The Solution:
+Built an end-to-end HR management platform featuring automated attendance tracking, department and designation management, granular role permissions, and an interactive analytics dashboard for executive oversight.
+
+Key Features:
+• Centralized employee profiles and records management
+• Daily attendance logging & leave request approval workflows
+• Department
+• designation
+• and role hierarchy management
+• Granular Role-Based Access Control (RBAC)
+• Clean
+• intuitive HR analytics dashboard
+• Automated report generation and data export
+
+Impact:
+Boosted HR workflow efficiency by automating employee data management, attendance auditing, and department role governance in a secure unified portal.`,
       problem:
         "Manual employee record keeping, attendance logging, and paper-based approval workflows caused administrative delays, payroll discrepancies, and security vulnerabilities in role access.",
       solution:
@@ -280,7 +340,26 @@ export const projectsData: Project[] = [
       tagline:
         "A fullstack construction services platform built with Laravel and React, featuring admin dashboard, enquiry management, and responsive user interface.",
       overview:
-        "A fullstack construction services platform built with Laravel and React, featuring admin dashboard, enquiry management, and responsive user interface. Designed to showcase construction portfolios and handle client inquiries seamlessly.",
+        `A fullstack construction services platform built with Laravel and React, featuring admin dashboard, enquiry management, and responsive user interface. Designed to showcase construction portfolios and handle client inquiries seamlessly.
+
+The Challenge:
+Construction contractors lacked a modern digital presence to effectively present high-resolution project case studies and manage prospective client quotes and enquiries systematically.
+
+The Solution:
+Developed a dual-purpose web platform offering an elegant client-facing portfolio paired with a powerful administrative backend for enquiry triage, project catalog management, and automated email notifications.
+
+Key Features:
+• Dynamic project portfolio showcase with image galleries
+• Interactive client enquiry & consultation booking forms
+• Admin dashboard for managing quotes
+• leads & content
+• Responsive design optimized for mobile
+• tablet & desktop
+• Automated SMTP email notifications for new client inquiries
+• RESTful API architecture connecting React frontend to Laravel backend
+
+Impact:
+Increased client consultation conversions by providing transparent service breakdowns, project showcases, and instant enquiry confirmation.`,
       problem:
         "Construction contractors lacked a modern digital presence to effectively present high-resolution project case studies and manage prospective client quotes and enquiries systematically.",
       solution:
@@ -345,7 +424,27 @@ export const projectsData: Project[] = [
       tagline:
         "A complete online clothing store platform managing products, orders, and customer interactions with a user-friendly interface.",
       overview:
-        "A complete online clothing store platform managing products, orders, and customer interactions with a user-friendly interface. Features a full catalog, cart and checkout system, user management, and administrative control.",
+        `A complete online clothing store platform managing products, orders, and customer interactions with a user-friendly interface. Features a full catalog, cart and checkout system, user management, and administrative control.
+
+The Challenge:
+Creating an engaging online fashion shopping experience that balances rich visuals, fast product filtering, cart persistence, and secure order processing.
+
+The Solution:
+Built a complete online store using Laravel and modern web technologies with secure checkout flows, product inventory management, order tracking, and clean UI styling with Tailwind CSS.
+
+Key Features:
+• Product catalog with categorization
+• search
+• and dynamic filtering
+• Persistent shopping cart & streamlined checkout workflow
+• Customer authentication
+• profile & order tracking
+• Admin dashboard for inventory management & sales reporting
+• Secure payment gateway integration & automated invoicing
+• Fully responsive layout across all device viewports
+
+Impact:
+Provides an intuitive, high-speed shopping experience with structured order lifecycle management from checkout to fulfillment.`,
       problem:
         "Creating an engaging online fashion shopping experience that balances rich visuals, fast product filtering, cart persistence, and secure order processing.",
       solution:
