@@ -4,6 +4,11 @@ import { heroData } from "@/app/data/hero";
 import { useEffect, useRef, useState } from "react";
 import { Download } from "lucide-react";
 import HeroImage from "@/app/asserts/Hero-bg.png";
+import { 
+  SiLaravel, SiPhp, SiMysql, SiDocker, 
+  SiNumpy, SiPandas, SiLinux, SiGit, SiPython
+} from "react-icons/si";
+import { FaReact } from "react-icons/fa";
 
 const roles = [
   "Laravel Developer",
@@ -14,11 +19,14 @@ const roles = [
 
 // Floating tech badges around profile image
 const TECH_BADGES = [
-  { label: "Laravel", color: "#ff4d4d", angle: 25, dist: 148 },
-  { label: "PHP", color: "#a78bfa", angle: 115, dist: 155 },
-  { label: "MySQL", color: "#00d4ff", angle: 195, dist: 145 },
-  { label: "React", color: "#61DAFB", angle: 285, dist: 150 },
-  { label: "Docker", color: "#10b981", angle: 345, dist: 142 },
+  { label: "Laravel", icon: SiLaravel, color: "#ff4d4d", angle: 0, dist: 220 },
+  { label: "React", icon: FaReact, color: "#61DAFB", angle: 40, dist: 225 },
+  { label: "Python", icon: SiPython, color: "#3776AB", angle: 140, dist: 225 },
+  { label: "Numpy", icon: SiNumpy, color: "#4DABCF", angle: 180, dist: 220 },
+  { label: "Pandas", icon: SiPandas, color: "#f50057", angle: 216, dist: 225 },
+  { label: "Linux", icon: SiLinux, color: "#FCC624", angle: 252, dist: 215 },
+  { label: "Git", icon: SiGit, color: "#F05032", angle: 288, dist: 225 },
+  { label: "PHP", icon: SiPhp, color: "#a78bfa", angle: 324, dist: 215 },
 ];
 
 function useTilt(ref: React.RefObject<HTMLDivElement | null>, strength = 10) {
@@ -46,12 +54,14 @@ function useTilt(ref: React.RefObject<HTMLDivElement | null>, strength = 10) {
 
 function FloatingBadge({
   label,
+  icon: Icon,
   color,
   angle,
   dist,
   delay,
 }: {
   label: string;
+  icon: React.ElementType;
   color: string;
   angle: number;
   dist: number;
@@ -62,23 +72,23 @@ function FloatingBadge({
   const y = Math.sin(rad) * dist;
   return (
     <div
-      className="absolute flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-wider whitespace-nowrap pointer-events-none select-none"
+      className="absolute flex items-center justify-center w-14 h-14 rounded-full pointer-events-none select-none"
+      title={label}
       style={{
         left: `calc(50% + ${x}px)`,
         top: `calc(50% + ${y}px)`,
         transform: "translate(-50%, -50%)",
-        background: `${color}18`,
-        border: `1px solid ${color}55`,
-        color: color,
+        background: `${color}15`,
+        border: `1px solid ${color}40`,
         animation: `floatY 3s ease-in-out infinite`,
         animationDelay: `${delay}s`,
-        boxShadow: `0 0 10px ${color}22`,
+        boxShadow: `0 0 15px ${color}20`,
+        backdropFilter: "blur(8px)",
       }}>
-      <span
-        className="w-1.5 h-1.5 rounded-full"
-        style={{ background: color, boxShadow: `0 0 6px ${color}` }}
+      <Icon 
+        className="w-7 h-7" 
+        style={{ color: color, filter: `drop-shadow(0 0 6px ${color}aa)` }} 
       />
-      {label}
     </div>
   );
 }
@@ -355,8 +365,8 @@ export function Banner() {
           <div
             className="shrink-0 relative"
             style={{
-              width: 300,
-              height: 380,
+              width: 380,
+              height: 480,
               opacity: mounted ? 1 : 0,
               transform: mounted ? "translateY(0)" : "translateY(30px)",
               transition: "opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s",

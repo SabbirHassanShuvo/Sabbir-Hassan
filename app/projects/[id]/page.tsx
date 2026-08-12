@@ -223,21 +223,21 @@ export default async function ProjectPage({ params }: Props) {
           )}
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-wrap items-center gap-4 mt-4">
             <a
               href={caseStudy.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 text-center py-3.5 text-xs uppercase tracking-widest bg-[#a78bfa] text-[#0f0f0f] font-medium rounded-xl hover:bg-[#c4b5fd] transition-colors">
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 text-xs uppercase tracking-widest bg-[#a78bfa] text-[#0f0f0f] font-semibold rounded-full hover:bg-[#c4b5fd] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(167,139,250,0.3)]">
               Live Demo ↗
             </a>
 
             {/* GitHub CTA — disabled if client project */}
             {caseStudy.itsClientProject ? (
-              <div className="flex-1 flex items-center justify-center gap-2 py-3.5 text-xs uppercase tracking-widest border border-white/8 text-white/20 rounded-xl cursor-not-allowed select-none">
+              <div className="inline-flex items-center justify-center gap-2 px-8 py-3 text-xs uppercase tracking-widest border border-white/10 text-white/30 rounded-full cursor-not-allowed select-none bg-white/5">
                 <svg
-                  width="12"
-                  height="12"
+                  width="14"
+                  height="14"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -247,14 +247,14 @@ export default async function ProjectPage({ params }: Props) {
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                   <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                 </svg>
-                Source Code Private
+                Private Source
               </div>
             ) : (
               <a
                 href={caseStudy.githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 text-center py-3.5 text-xs uppercase tracking-widest border border-[rgba(167,139,250,0.35)] text-[#a78bfa] rounded-xl hover:bg-[rgba(167,139,250,0.1)] transition-colors">
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 text-xs uppercase tracking-widest border border-[rgba(167,139,250,0.35)] text-[#a78bfa] rounded-full hover:bg-[rgba(167,139,250,0.1)] hover:border-[#a78bfa] hover:scale-[1.02] active:scale-[0.98] transition-all">
                 GitHub ↗
               </a>
             )}

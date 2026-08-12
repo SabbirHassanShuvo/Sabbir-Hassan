@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import {
@@ -15,6 +15,17 @@ export default function DetailsImage({ gallery }: { gallery: string[] }) {
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollThumbnails = (dir: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = 250;
+      scrollRef.current.scrollBy({
+        left: dir === "right" ? scrollAmount : -scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
 
   useEffect(() => {
     if (!api) return;
@@ -91,27 +102,47 @@ export default function DetailsImage({ gallery }: { gallery: string[] }) {
 
       {/* ── Thumbnail Strip ── */}
       {gallery.length > 1 && (
-        <div className="flex items-center gap-3 overflow-x-auto py-2 px-1 scrollbar-none">
-          {gallery.map((img, idx) => (
-            <button
-              key={idx}
-              onClick={() => api?.scrollTo(idx)}
-              className={`relative shrink-0 w-24 h-16 sm:w-32 sm:h-20 rounded-xl overflow-hidden border transition-all duration-300 ${
-                current === idx
-                  ? "border-[#a78bfa] ring-2 ring-[#a78bfa]/40 opacity-100 scale-105"
-                  : "border-white/10 opacity-50 hover:opacity-90 hover:border-white/30"
-              }`}>
-              <Image
-                src={img}
-                alt={`Thumbnail ${idx + 1}`}
-                fill
-                className="object-cover"
-                sizes="128px"
-                suppressHydrationWarning
-                unoptimized
-              />
-            </button>
-          ))}
+        <div className="relative group/thumbs w-full mt-2">
+          {/* Left Arrow */}
+          <button
+            onClick={() => scrollThumbnails("left")}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-14 bg-black/80 backdrop-blur-md border border-white/10 text-white/80 hover:text-white hover:bg-black flex items-center justify-center rounded-r-lg opacity-0 group-hover/thumbs:opacity-100 transition-all duration-300"
+            aria-label="Scroll left">
+            <ChevronLeft size={20} />
+          </button>
+
+          <div 
+            ref={scrollRef}
+            className="flex items-center gap-3 overflow-x-auto py-2 px-1 scrollbar-none scroll-smooth">
+            {gallery.map((img, idx) => (
+              <button
+                key={idx}
+                onClick={() => api?.scrollTo(idx)}
+                className={`relative shrink-0 w-24 h-16 sm:w-32 sm:h-20 rounded-xl overflow-hidden border transition-all duration-300 ${
+                  current === idx
+                    ? "border-[#a78bfa] ring-2 ring-[#a78bfa]/40 opacity-100 scale-105"
+                    : "border-white/10 opacity-50 hover:opacity-90 hover:border-white/30"
+                }`}>
+                <Image
+                  src={img}
+                  alt={`Thumbnail ${idx + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="128px"
+                  suppressHydrationWarning
+                  unoptimized
+                />
+              </button>
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={() => scrollThumbnails("right")}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-14 bg-black/80 backdrop-blur-md border border-white/10 text-white/80 hover:text-white hover:bg-black flex items-center justify-center rounded-l-lg opacity-0 group-hover/thumbs:opacity-100 transition-all duration-300"
+            aria-label="Scroll right">
+            <ChevronRight size={20} />
+          </button>
         </div>
       )}
 
