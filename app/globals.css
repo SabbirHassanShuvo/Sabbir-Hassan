@@ -1,0 +1,443 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════════════
+   DESIGN TOKENS — Electric Cyan & Violet
+═══════════════════════════════════════════════════════════ */
+:root {
+  /* Brand palette */
+  --cyan: #00d4ff;
+  --cyan-dim: #00aacc;
+  --violet: #7c3aed;
+  --violet-mid: #8b5cf6;
+  --violet-light: #a78bfa;
+  --emerald: #10b981;
+  --amber: #f59e0b;
+  --rose: #f43f5e;
+
+  /* Backgrounds */
+  --bg-base: #050a14;
+  --bg-card: #080d18;
+  --bg-card-2: #0c1220;
+
+  /* Text */
+  --text-1: #ffffff;
+  --text-2: rgba(255, 255, 255, 0.65);
+  --text-3: rgba(255, 255, 255, 0.38);
+
+  /* Legacy compat vars */
+  --gold: var(--violet-light);
+  --cream: #e8d5ff;
+  --dark: var(--bg-card);
+  --mid: var(--bg-card-2);
+  --radius: 0.625rem;
+
+  /* shadcn / Tailwind tokens — dark-first */
+  --background: #050a14;
+  --foreground: #ffffff;
+  --card: #080d18;
+  --card-foreground: #ffffff;
+  --popover: #080d18;
+  --popover-foreground: #ffffff;
+  --primary: #00d4ff;
+  --primary-foreground: #050a14;
+  --secondary: #0c1220;
+  --secondary-foreground: #ffffff;
+  --muted: #0c1220;
+  --muted-foreground: rgba(255, 255, 255, 0.5);
+  --accent: #0c1220;
+  --accent-foreground: #ffffff;
+  --destructive: #f43f5e;
+  --border: rgba(255, 255, 255, 0.07);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #00d4ff;
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --sidebar: #080d18;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #00d4ff;
+  --sidebar-primary-foreground: #050a14;
+  --sidebar-accent: #0c1220;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.07);
+  --sidebar-ring: #00d4ff;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BODY — Deep navy base
+═══════════════════════════════════════════════════════════ */
+body {
+  background: #050a14 !important;
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: "Syne", sans-serif;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BACKGROUND — Animated gradient blobs
+═══════════════════════════════════════════════════════════ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 60% 50% at 15% 30%,
+      rgba(124, 58, 237, 0.12) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 85% 70%,
+      rgba(0, 212, 255, 0.08) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 40% 35% at 50% 100%,
+      rgba(16, 185, 129, 0.05) 0%,
+      transparent 60%
+    ),
+    linear-gradient(160deg, #050a14 0%, #060c18 50%, #040910 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Fine dot grid */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 212, 255, 0.055) 1px,
+    transparent 1px
+  );
+  background-size: 36px 36px;
+  mask-image: radial-gradient(
+    ellipse 100% 100% at 50% 50%,
+    black 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.55;
+}
+
+
+
+/* ═══════════════════════════════════════════════════════════
+   THREE.JS CANVAS
+═══════════════════════════════════════════════════════════ */
+#canvas-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLL CONTAINER
+═══════════════════════════════════════════════════════════ */
+#scroll-container {
+  position: relative;
+  z-index: 10;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FIXED NAV
+═══════════════════════════════════════════════════════════ */
+#fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  transition:
+    padding 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+  color: #ffffff;
+}
+
+#fixed-nav.scrolled {
+  padding: 10px 40px;
+  background: rgba(5, 10, 20, 0.88) !important;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.nav-logo {
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: #e8d5ff;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00d4ff;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GRADIENT TEXT
+═══════════════════════════════════════════════════════════ */
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff 0%, #a78bfa 60%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION LABEL
+═══════════════════════════════════════════════════════════ */
+.section-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  background: linear-gradient(90deg, #00d4ff, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TECH TAG — pill with neon border
+═══════════════════════════════════════════════════════════ */
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  background: rgba(0, 212, 255, 0.06);
+  color: #00d4ff;
+  transition:
+    border-color 0.3s,
+    background 0.3s,
+    box-shadow 0.3s;
+}
+.tech-tag:hover {
+  border-color: rgba(0, 212, 255, 0.6);
+  background: rgba(0, 212, 255, 0.12);
+  box-shadow: 0 0 14px rgba(0, 212, 255, 0.2);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GLITCH TEXT
+═══════════════════════════════════════════════════════════ */
+.glitch {
+  position: relative;
+  display: inline-block;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #00d4ff 0%, #a78bfa 60%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.glitch::before {
+  animation: glitchTop 3s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  transform: translateX(-2px);
+}
+.glitch::after {
+  animation: glitchBottom 2.5s infinite linear alternate-reverse;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  transform: translateX(2px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #050a14;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#00d4ff, #7c3aed);
+  border-radius: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SELECTION
+═══════════════════════════════════════════════════════════ */
+::selection {
+  background: rgba(0, 212, 255, 0.25);
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════════════════════════ */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glitchTop {
+  0%,
+  90%,
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translateX(-2px);
+  }
+  92% {
+    clip-path: polygon(0 5%, 100% 5%, 100% 50%, 0 50%);
+    transform: translateX(4px);
+  }
+  94% {
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    transform: translateX(-1px);
+  }
+}
+
+@keyframes glitchBottom {
+  0%,
+  90%,
+  100% {
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    transform: translateX(2px);
+  }
+  92% {
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+    transform: translateX(-3px);
+  }
+  94% {
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    transform: translateX(1px);
+  }
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translateY(0px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-8px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes conicSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmerSlide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE NAV
+═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  #fixed-nav {
+    padding: 10px 20px;
+  }
+  #fixed-nav.scrolled {
+    padding: 8px 20px;
+  }
+  .nav-logo {
+    font-size: 10px;
+  }
+  .nav-links {
+    gap: 20px;
+  }
+  .nav-links a {
+    font-size: 9px;
+  }
+}
