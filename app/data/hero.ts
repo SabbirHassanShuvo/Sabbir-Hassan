@@ -10,8 +10,8 @@ export const heroData = {
     link: "#projects",
   },
   resume: {
-    text: "Download Resume",
-    link: "/Sabbir-Hassan-CV.pdf",
+    text: "Download CV",
+    link: "https://drive.google.com/file/d/1qxQAzQtp4RCUzoqGyU35Zrn245Y28WHL/view?usp=sharing",
   },
   github: {
     text: "GitHub",

@@ -128,9 +128,8 @@ export default async function ProjectPage({ params }: Props) {
           </div>
 
           {/* Meta row */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
             {[
-              { label: "duration", value: project.year },
               { label: "Role", value: project.role },
               {
                 label: "Platform",

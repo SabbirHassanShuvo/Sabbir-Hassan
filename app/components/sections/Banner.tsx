@@ -97,6 +97,8 @@ export function Banner() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [visible, setVisible] = useState(true);
   const [mounted, setMounted] = useState(true);
+
+
   const imageWrapRef = useRef<HTMLDivElement>(null);
   useTilt(imageWrapRef, 10);
 
@@ -284,10 +286,11 @@ export function Banner() {
                 opacity: mounted ? 1 : 0,
                 transition: "opacity 0.8s ease 0.65s",
               }}>
-              {/* Download Resume */}
+              {/* Download CV – opens Google Drive */}
               <a
                 href={heroData.resume.link}
-                download="Sabbir-Hassan-CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative flex items-center justify-center gap-2 px-7 py-3.5 text-sm uppercase tracking-[0.18em] font-medium transition-all duration-400 overflow-hidden rounded-lg"
                 style={{
                   background:

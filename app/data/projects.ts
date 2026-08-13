@@ -746,91 +746,425 @@ Boosted HR workflow efficiency by automating employee data management, attendanc
       itsClientProject: false,
     },
   },
-
   // ─────────────────────────────────────────────
-  // 4. Construction Services Web App
+  // 8. DailySunnah – Islamic Habit Tracker App
   // ─────────────────────────────────────────────
   {
-    id: "4",
-    title: "Construction Services Web App",
+    id: "8",
+    title: "DailySunnah – Islamic Habit Tracker App",
     shortDescription:
-      "Fullstack platform with enquiry management, quotes & admin dashboard",
-    year: "2025",
-    role: "Full Stack Developer",
-    coverImage: "/channelGum/channelGum-cover.png",
+      "React Native mobile app that helps Muslims build daily Sunnah habits with streak tracking, hadith references, and offline access",
+    year: "2025 – 2026",
+    role: "Mobile & Backend Developer",
+    coverImage: "/Dailysunnah/Cover.png",
     images: [
-      "/channelGum/channelGum-cover.png",
-      "/channelGum/channelGum-image1.png",
-      "/channelGum/channelGum-image2.png",
+      "/Dailysunnah/Cover.png",
+      "/Dailysunnah/1.png",
+      "/Dailysunnah/2.png",
+      "/Dailysunnah/3.png",
+      "/Dailysunnah/4.png",
+      "/Dailysunnah/5.png",
     ],
-    category: ["web"],
+    category: ["app"],
     caseStudy: {
       tagline:
-        "A fullstack construction services platform built with Laravel and React, featuring admin dashboard, enquiry management, and responsive user interface.",
-      overview: `A fullstack construction services platform built with Laravel and React, featuring admin dashboard, enquiry management, and responsive user interface. Designed to showcase construction portfolios and handle client inquiries seamlessly.
+        "A React Native (Expo) app, powered by a Laravel backend, that turns daily Sunnah practices into a trackable checklist, with streaks, hadith references, and gender- and mazhab-specific Islamic guidance — fully usable offline.",
+      overview: `Built DailySunnah, a React Native mobile app that helps users build consistent daily Islamic habits (Sunnahs) through a simple checklist experience, backed by streak tracking, daily reminders, and rich Islamic educational content synced from a Laravel-powered backend.
 
 The Challenge:
-Construction contractors lacked a modern digital presence to effectively present high-resolution project case studies and manage prospective client quotes and enquiries systematically.
+Many Muslims want to practice daily Sunnahs (small prophetic traditions like using miswak, eating with the right hand, giving salam) but lack a simple way to track consistency or understand the hadith basis and scholarly (mazhab) context behind each practice. The content (hadiths, daily tips, duas, mazhab explanations) also needed to be manageable and updatable without shipping a new app release, while the app itself still had to work reliably offline on lower-end Android devices.
 
 The Solution:
-Developed a dual-purpose web platform offering an elegant client-facing portfolio paired with a powerful administrative backend for enquiry triage, project catalog management, and automated email notifications.
+Built the mobile client with React Native and Expo, using AsyncStorage for offline-first local persistence of habits, streaks, and daily state so the checklist keeps working without a network connection. A Laravel backend serves as the content and API layer — managing and delivering the Sunnah habit list, hadith references, daily tips/duas, mazhab explanations, and forgotten-Sunnah content — so new content can be added or corrected from an admin side without an app update, while the mobile app caches it locally for offline use. Each Sunnah habit in the checklist links to its hadith reference and explanation, plus a breakdown across the four major mazhabs (Hanafi, Shafi'i, Maliki, Hanbali). The app also curates a "forgotten Sunnahs" section and gender-specific Islamic guidance (separate content tracks for men and women), with a daily tip and daily Arabic dua rotated based on the date.
 
 Key Features:
-• Dynamic project portfolio showcase with image galleries
-• Interactive client enquiry & consultation booking forms
-• Admin dashboard for managing quotes
-• leads & content
-• Responsive design optimized for mobile
-• tablet & desktop
-• Automated SMTP email notifications for new client inquiries
-• RESTful API architecture connecting React frontend to Laravel backend
+- Daily Sunnah checklist with tap-to-complete tracking
+- Streak counter that persists across days via AsyncStorage
+- Daily progress bar showing completed vs total Sunnahs for the day
+- Hadith reference & explanation shown under each habit
+- Four-mazhab (Hanafi/Shafi'i/Maliki/Hanbali) explanation modal per habit
+- Rotating daily tip and Arabic dua with Bangla translation & context
+- "Forgotten Sunnahs" section highlighting lesser-known practices
+- Gender-specific Islamic guidance sections (for men and women)
+- Fully offline-first — all data stored and read locally via AsyncStorage
+- Automatic daily reset of checklist at midnight based on device date
+- Dark mode support via system color scheme detection
+- Laravel backend API serving and managing all Islamic content (habits, hadiths, tips, duas, mazhab explanations)
+- Distributed as a standalone Android APK alongside the Expo project
 
 Impact:
-Increased client consultation conversions by providing transparent service breakdowns, project showcases, and instant enquiry confirmation.`,
+Delivered a lightweight, offline-capable Islamic habit-tracking app backed by a manageable Laravel content API — combining behavior-building (streaks, checklists) with authentic, easily-updatable hadith and mazhab context, making it easy for users to build consistency in daily Sunnah practice.`,
       problem:
-        "Construction contractors lacked a modern digital presence to effectively present high-resolution project case studies and manage prospective client quotes and enquiries systematically.",
+        "Muslims wanting to build consistency in daily Sunnah practices had no simple, offline-friendly way to track habits while also learning the hadith basis and mazhab context behind each one — and the content itself needed to be easy to update without app releases.",
       solution:
-        "Developed a dual-purpose web platform offering an elegant client-facing portfolio paired with a powerful administrative backend for enquiry triage, project catalog management, and automated email notifications.",
+        "Built a React Native (Expo) client with a Laravel backend API: the app stores habit, streak, and daily-state data locally via AsyncStorage for offline-first use, while Laravel manages and serves the Sunnah content (hadiths, daily tips, duas, mazhab breakdowns) so it can be updated independently of the app.",
       impact:
-        "Increased client consultation conversions by providing transparent service breakdowns, project showcases, and instant enquiry confirmation.",
+        "Delivered a habit-tracking experience that works offline day-to-day while staying easy to maintain and expand from the backend, surfacing authentic hadith and scholarly context behind each habit directly in the checklist.",
       features: [
-        "Dynamic project portfolio showcase with image galleries",
-        "Interactive client enquiry & consultation booking forms",
-        "Admin dashboard for managing quotes, leads & content",
-        "Responsive design optimized for mobile, tablet & desktop",
-        "Automated SMTP email notifications for new client inquiries",
-        "RESTful API architecture connecting React frontend to Laravel backend",
+        "Daily Sunnah checklist with tap-to-complete tracking",
+        "Persistent streak counter across days (AsyncStorage)",
+        "Daily progress bar for completed vs total habits",
+        "Hadith reference & explanation per habit",
+        "Four-mazhab (Hanafi/Shafi'i/Maliki/Hanbali) explanations",
+        "Rotating daily tip & Arabic dua with Bangla translation",
+        '"Forgotten Sunnahs" highlight section',
+        "Gender-specific Islamic guidance content",
+        "Laravel backend API for content management & delivery",
+        "Offline-first local caching of synced content",
+        "Automatic daily checklist reset",
+        "Dark mode support",
       ],
       challenges: [
         {
-          title: "Optimizing High-Resolution Media Delivery",
+          title: "Reliable Offline-First Data Persistence",
           description:
-            "Serving high-resolution architecture photos without slowing down page load times across mobile devices.",
+            "The app needed to track habits, streaks, and daily reset state without any backend, while surviving app restarts and date changes correctly.",
           solution:
-            "Implemented automated image compression pipelines and responsive srcset rendering for optimal performance.",
+            "Used AsyncStorage as the single source of truth: on launch, the app compares the stored lastDate against today's date via moment.js, resets the checklist when a new day starts, and persists habits and streak count back to AsyncStorage on every toggle.",
+        },
+        {
+          title: "Delivering Educational Depth Without Clutter",
+          description:
+            "Each Sunnah habit could be explained from a hadith reference, four different mazhab perspectives, and gender-specific context — too much to show inline without overwhelming the checklist UI.",
+          solution:
+            "Kept the main checklist minimal (icon, name, short hadith caption) and pushed deeper content — full mazhab breakdowns and gender-specific guidance — into expandable/modal views triggered on demand.",
         },
       ],
-      contributors: [{ name: "Sabbir Hassan", role: "Full Stack Developer" }],
-      technologies: [
-        "Laravel",
-        "React",
-        "RESTful API",
-        "MySQL",
-        "Tailwind CSS",
-        "JavaScript",
-        "PHP",
-        "SMTP",
+      contributors: [
+        { name: "Sabbir Hassan", role: "Mobile & Backend Developer" },
       ],
-      liveLink: "https://sabbir-hassan.vercel.app/",
-      githubLink: "https://github.com/SabbirHassanShuvo",
-      youtubeId: "dQw4w9WgXcQ",
-      desktopReady: true,
+      technologies: [
+        "React Native",
+        "Expo",
+        "React 19",
+        "Laravel",
+        "PHP",
+        "MySQL",
+        "RESTful API",
+        "AsyncStorage",
+        "Moment.js",
+        "React Native SVG",
+        "React Native Vector Icons",
+      ],
+      liveLink: "",
+      githubLink: "https://github.com/SabbirHassanShuvo/DailySunnah-App",
+      youtubeId: "",
+      desktopReady: false,
       mobileReady: true,
       itsClientProject: false,
     },
   },
 
   // ─────────────────────────────────────────────
-  // 5. Cylore E-Commerce Web App
+  // 9. Stand Blog – Role-Based Blogging Platform
   // ─────────────────────────────────────────────
+  {
+    id: "9",
+    title: "Stand Blog – Role-Based Blogging Platform",
+    shortDescription:
+      "Laravel blog platform with custom-built authentication, three-tier role permissions, and a full admin/moderator content workflow",
+    year: "2025",
+    role: "Full Stack Developer",
+    coverImage: "/standblog/cover.jpg",
+    images: [
+      "/standblog/cover.jpg",
+      "/standblog/1.jpg",
+      "/standblog/2.jpg",
+      "/standblog/3.jpg",
+      "/standblog/4.jpg",
+      "/standblog/5.jpg",
+      "/standblog/6.jpg",
+      "/standblog/7.jpg",
+      "/standblog/8.jpg",
+      "/standblog/9.jpg",
+      "/standblog/10.jpg",
+    ],
+    category: ["web"],
+    caseStudy: {
+      tagline:
+        "A responsive Laravel blogging platform built from scratch with manual authentication logic and a three-tier role system — Admin, Moderator, and User.",
+      overview: `Built Stand Blog, a full-stack Laravel blogging platform where content permissions are strictly tied to user roles. Rather than relying on Laravel's built-in auth scaffolding, the authentication and session logic were written manually, giving full control over registration, login, password reset, and role assignment.
+
+The Challenge:
+The platform needed clear separation of responsibility between three types of users — Admins who manage the whole system, Moderators who help manage content, and regular Users who read and comment — while keeping the authentication flow, email notifications, and post/comment workflows fully custom rather than relying on a scaffolding package.
+
+The Solution:
+Built a custom AuthController handling registration, login, and logout by hand (hashing, session/cache-based password reset tokens, and role assignment on signup), backed by Laravel Mail classes for welcome emails, password-reset emails, and contact-form replies sent over SMTP. Posts, categories, and comments are managed through role-guarded Admin controllers, with image upload and thumbnail generation on post creation. The frontend uses Blade templates with Bootstrap 5 for a responsive reading and admin experience.
+
+Key Features:
+- Manual (non-scaffolded) authentication: registration, login, logout
+- Three-tier role-based access: Admin, Moderator, User
+- Cache/token-based password reset flow with email delivery
+- Automated welcome emails on registration (separate templates for admin vs. general users)
+- Blog post CRUD with image upload & thumbnail generation, permissioned by role
+- Category management for organizing posts
+- Comment system on posts
+- Contact form with an admin reply-by-email feature
+- Admin dashboard for managing users, posts, categories, and comments
+- Posts listed by latest publish date
+- Fully responsive Blade + Bootstrap 5 frontend
+
+Impact:
+Delivered a self-contained Laravel blogging platform with a hand-built, fully understood authentication and permissions system — giving the client a content workflow where Admins and Moderators can safely manage posts and comments without touching user-facing account security logic.`,
+      problem:
+        "The platform needed a blogging system with clearly separated Admin, Moderator, and User permissions, custom-built authentication (not off-the-shelf scaffolding), and a reliable email flow for account and contact interactions.",
+      solution:
+        "Built a Laravel backend with a hand-written AuthController (registration, login, cache/token-based password reset), Mail classes for welcome/reset/contact-reply emails, and role-guarded Admin controllers for posts, categories, users, and comments — rendered through Blade + Bootstrap 5.",
+      impact:
+        "Delivered a fully custom, role-aware blogging platform where Admins and Moderators manage content and users through a dedicated dashboard, while the authentication and email systems remain transparent and fully owned rather than dependent on a package.",
+      features: [
+        "Manually built authentication (register, login, logout)",
+        "Three-tier roles: Admin, Moderator, User",
+        "Token/cache-based password reset via email",
+        "Automated welcome emails on registration",
+        "Blog post CRUD with image upload & thumbnails",
+        "Category management",
+        "Comment system on posts",
+        "Contact form with admin email-reply feature",
+        "Admin dashboard: users, posts, categories, comments",
+        "Responsive Blade + Bootstrap 5 frontend",
+      ],
+      challenges: [
+        {
+          title: "Building Authentication Without Scaffolding",
+          description:
+            "Skipping Laravel's built-in auth starter kits meant registration, login, session handling, and password-reset security had to be implemented and secured entirely by hand.",
+          solution:
+            "Wrote a dedicated AuthController that validates and hashes credentials directly, assigns a default role on registration, and generates cache-backed, time-limited password-reset tokens emailed via a custom ResetPasswordEmail mailable.",
+        },
+        {
+          title: "Role-Guarded Content Workflows",
+          description:
+            "Admins, Moderators, and Users needed different levels of access to posts, categories, and comments without duplicating controller logic across roles.",
+          solution:
+            "Centralized post, category, and user management inside role-checked Admin controllers, using the user_role field set at registration to gate access to dashboard routes and actions.",
+        },
+      ],
+      contributors: [{ name: "Sabbir Hassan", role: "Backend" }],
+      technologies: [
+        "Laravel",
+        "PHP",
+        "Blade",
+        "Bootstrap 5",
+        "MySQL",
+        "SMTP Mail",
+        "Custom Auth",
+      ],
+      liveLink: "",
+      githubLink: "https://github.com/SabbirHassanShuvo/Stand-Blog-Laravel",
+      youtubeId: "",
+      desktopReady: true,
+      mobileReady: false,
+      itsClientProject: false,
+    },
+  },
+
+  // ─────────────────────────────────────────────
+  // 10. Blood Donation Management System
+  // ─────────────────────────────────────────────
+  {
+    id: "10",
+    title: "Blood Donation Management System",
+    shortDescription:
+      "Core PHP web app that connects blood donors and recipients with donor search, admin management, and donation history tracking",
+    year: "2025 – 2026",
+    role: "Backend Developer",
+    coverImage: "/bloodbank/Cover.jpg",
+    images: [
+      "/bloodbank/Cover.jpg",
+      "/bloodbank/1.jpg",
+      "/bloodbank/2.jpg",
+      "/bloodbank/3.jpg",
+      "/bloodbank/4.jpg",
+      "/bloodbank/5.jpg",
+      "/bloodbank/6.jpg",
+      "/bloodbank/7.jpg",
+      "/bloodbank/8.jpg",
+      "/bloodbank/9.jpg",
+      "/bloodbank/10.jpg",
+    ],
+    category: ["web"],
+    caseStudy: {
+      tagline:
+        "A core PHP web application built to bridge the gap between people who need blood and people who can donate — with donor search, admin oversight, and donation history tracking.",
+      overview: `Built a Blood Donation Management System in core PHP (no framework) to help hospitals, NGOs, and communities manage blood donors and requests in one place. The system connects people searching for blood with registered donors by blood group and location, while giving admins tools to manage users and monitor activity.
+
+The Challenge:
+Finding an available, eligible donor quickly during an emergency is difficult without a searchable, centralized donor registry. The platform needed straightforward donor registration and lookup, secure account recovery, and an admin layer to keep donor and user data clean — all without the overhead of a full framework.
+
+The Solution:
+Built entirely in core PHP with a MySQL/MariaDB database, using parameterized/escaped queries for donor search and pagination. Authentication covers registration, login, logout, and a forgot-password flow that emails a reset link via PHPMailer over SMTP (Mailtrap in development). Donor records track blood group, contact info, and last donation date so requesters can judge donor eligibility and recency at a glance. An admin dashboard provides full CRUD over users and donors.
+
+Key Features:
+- User authentication: register, login, logout, forgot/reset password
+- Donor management: add, edit, and view donor profiles
+- Donor search by name, phone, or blood group with pagination
+- Donation history — shows how long ago a donor last donated
+- Admin panel for managing users and monitoring donor records
+- Password-reset emails sent via PHPMailer/SMTP
+- Responsive Bootstrap-based UI
+- Server-side input escaping for safer database queries
+
+Impact:
+Delivered a lightweight, framework-free donor management platform that makes it faster to locate a matching, eligible donor by blood group — while giving admins the tools to keep the donor registry accurate and up to date.`,
+      problem:
+        "Hospitals, NGOs, and communities needed a simple, centralized way to register blood donors and quickly search for an eligible match by blood group and location during urgent requests, without adopting a heavy framework.",
+      solution:
+        "Built a core PHP + MySQL application with donor CRUD, a searchable/paginated donor listing filtered by name, phone, or blood group, an admin panel for user/donor oversight, and a PHPMailer-powered forgot-password email flow.",
+      impact:
+        "Delivered a fast, easy-to-deploy donor registry that lets requesters search available donors by blood group in seconds, while admins maintain data accuracy through a dedicated management panel.",
+      features: [
+        "Register, login, logout & forgot/reset password",
+        "Add, edit & view donor profiles",
+        "Search donors by name, phone, or blood group",
+        "Paginated donor listing",
+        "Donation history (time since last donation)",
+        "Admin panel for user & donor management",
+        "PHPMailer/SMTP-powered password reset emails",
+        "Responsive Bootstrap UI",
+      ],
+      challenges: [
+        {
+          title: "Fast, Safe Donor Search",
+          description:
+            "Requesters needed to quickly filter a growing donor list by blood group, name, or phone without slow queries or SQL injection risk.",
+          solution:
+            "Built a single search query that escapes user input and matches across name, phone, and blood_group fields, combined with SQL-level pagination (LIMIT/OFFSET) to keep listings fast as the donor table grows.",
+        },
+        {
+          title: "Account Recovery Without a Framework",
+          description:
+            "Without Laravel-style auth scaffolding, password reset needed to be built securely by hand — validating tokens and expiry, then emailing a reset link.",
+          solution:
+            "Integrated PHPMailer directly for SMTP delivery, generating and validating reset tokens in reset_password.php and forgot_password.php before allowing a password change.",
+        },
+      ],
+      contributors: [{ name: "Sabbir Hassan", role: "Backend" }],
+      technologies: [
+        "PHP",
+        "MySQL",
+        "Bootstrap",
+        "HTML",
+        "CSS",
+        "PHPMailer",
+        "SMTP",
+      ],
+      liveLink: "",
+      githubLink: "https://github.com/SabbirHassanShuvo/Blood_Donation",
+      youtubeId: "",
+      desktopReady: true,
+      mobileReady: false,
+      itsClientProject: false,
+    },
+  },
+
+  // ─────────────────────────────────────────────
+  // 11. Cylore Construction – Construction Service Website
+  // ─────────────────────────────────────────────
+  {
+    id: "11",
+    title: "Cylore Construction – Construction Service Website",
+    shortDescription:
+      "Full-stack construction brand website with a Laravel API backend and a React admin-managed frontend for services, projects, and testimonials",
+    year: "2025 – 2026",
+    role: "Full Stack Developer",
+    coverImage: "/contruction/cover.jpg",
+    images: [
+      "/contruction/cover.jpg",
+      "/contruction/1.jpg",
+      "/contruction/2.jpg",
+      "/contruction/3.jpg",
+      "/contruction/4.jpg",
+      "/contruction/5.jpg",
+      "/contruction/6.jpg",
+      "/contruction/7.jpg",
+      "/contruction/8.jpg",
+    ],
+    category: ["web"],
+    caseStudy: {
+      tagline:
+        "A modern construction service website for Cylore, built as a decoupled Laravel 11 API backend paired with a React 18 (Vite) frontend, covering services, projects, team, and testimonials.",
+      overview: `Built the Cylore Construction website as a decoupled full-stack application: a Laravel 11 REST API backend and a separate React 18 + Vite frontend, for a construction brand offering building, renovation, and management services.
+
+The Challenge:
+A construction company needed a marketing site that could showcase its services, past projects, team members, and client testimonials — fully manageable from an admin panel — while still feeling fast and polished on the public-facing side, with a proper enquiry/contact pipeline for leads.
+
+The Solution:
+Split the codebase into a Laravel 11 API (Sanctum-authenticated) serving structured content — services, projects, team members, testimonials, and articles/blog posts — and a React 18 + Vite frontend consuming that API. Admin controllers manage all content types (services, projects, testimonials, members, articles) separately from the public "front" controllers that serve read-only data to the React app. Image uploads are optimized with Intervention/Image, and a temp-image controller handles preview uploads before content is saved. The frontend uses React Hook Form with React Toastify for validated, feedback-rich forms (including the contact/enquiry form), Swiper.js for image carousels, and Jodit React as a rich text editor for admin content entry.
+
+Key Features:
+- User authentication (register, login, logout) via Laravel Sanctum
+- Profile update & password reset
+- Admin dashboard for managing services, projects, team, testimonials & articles
+- Public service listing with search & filter
+- Contact form with enquiry management for the admin
+- Image optimization via Intervention/Image, with temp-image upload handling
+- Rich text content editing (Jodit React) for admin-authored content
+- Image sliders/carousels via Swiper.js
+- Real-time form validation (React Hook Form) with toast notifications
+- Fully responsive, mobile-friendly UI
+- Decoupled architecture: Laravel API + React SPA over Vite
+
+Impact:
+Delivered a fast, fully admin-manageable construction brand website — separating public marketing pages from a clean Laravel API and admin panel, so non-technical staff can update services, showcase completed projects, and manage incoming enquiries without developer involvement.`,
+      problem:
+        "Cylore needed a professional, fast-loading construction brand website where services, projects, team, and testimonials were fully editable by admin staff, alongside a working contact/enquiry pipeline for potential clients.",
+      solution:
+        "Built a decoupled Laravel 11 API (Sanctum auth, Intervention/Image processing) serving services, projects, members, testimonials, and articles, consumed by a React 18 + Vite frontend with React Hook Form, React Toastify, Swiper.js, and Jodit React for a polished public and admin experience.",
+      impact:
+        "Delivered a construction brand website that stays easy for staff to update (services, portfolio, team, testimonials) through a dedicated admin panel, while giving visitors a fast, responsive React frontend and a working enquiry pipeline.",
+      features: [
+        "Authentication (register, login, logout) via Laravel Sanctum",
+        "Profile update & password reset",
+        "Admin dashboard for services, projects, members, testimonials & articles",
+        "Public service listing with search & filter",
+        "Contact form & enquiry management",
+        "Image optimization via Intervention/Image",
+        "Rich text editing (Jodit React) for admin content",
+        "Image carousels via Swiper.js",
+        "Real-time validated forms (React Hook Form + Toastify)",
+        "Fully responsive, mobile-friendly UI",
+      ],
+      challenges: [
+        {
+          title: "Decoupling Admin Content from the Public API",
+          description:
+            "Services, projects, testimonials, and articles all needed both an admin management interface and a lightweight public read endpoint, without mixing write-permissioned logic into the public API surface.",
+          solution:
+            "Split controllers into separate `admin` and `front` namespaces per content type (e.g. ServiceController in both), so admin routes handle full CRUD behind Sanctum auth while front routes only expose safe, read-only data to the React app.",
+        },
+        {
+          title: "Smooth Image Uploads Before Content Is Saved",
+          description:
+            "Admins needed to preview and attach images while creating or editing services/projects, without leaving orphaned files if the form was abandoned.",
+          solution:
+            "Built a dedicated TempImageController that handles uploads to a temporary location first, processes them via Intervention/Image, and only associates them with the final record once the parent form is actually submitted.",
+        },
+      ],
+      contributors: [{ name: "Sabbir Hassan", role: "Full Stack" }],
+      technologies: [
+        "Laravel 11",
+        "Laravel Sanctum",
+        "PHP",
+        "React 18",
+        "Vite 6",
+        "React Router v7",
+        "React Hook Form",
+        "React Toastify",
+        "Bootstrap 5",
+        "React-Bootstrap",
+        "Sass",
+        "Jodit React",
+        "Swiper.js",
+        "Intervention/Image",
+        "MySQL",
+      ],
+      liveLink: "",
+      githubLink: "https://github.com/SabbirHassanShuvo/Cylore-Construction",
+      youtubeId: "",
+      desktopReady: true,
+      mobileReady: false,
+      itsClientProject: true,
+    },
+  },
 ];
