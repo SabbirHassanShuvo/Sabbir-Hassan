@@ -345,23 +345,337 @@ Delivered a unified backend that securely verifies users, processes payments, au
       itsClientProject: true,
     },
   },
-
   // ─────────────────────────────────────────────
-  // 4. Employee Management System
+  // 4. ChannelGum – Digital Asset Marketplace
   // ─────────────────────────────────────────────
   {
     id: "4",
+    title: "ChannelGum – Digital Asset Marketplace",
+    shortDescription:
+      "Escrow-protected marketplace to buy and sell YouTube channels, Instagram pages & other digital assets",
+    year: "2025 – 2026",
+    role: "Backend & Full Stack Developer",
+    coverImage: "/channelGum/channelGum-cover.png",
+    images: [
+      "/channelGum/channelGum-cover.png",
+      "/channelGum/channelGum-image1.png",
+      "/channelGum/channelGum-image2.png",
+      "/channelGum/channelGum-image3.png",
+      "/channelGum/channelGum-image4.png",
+      "/channelGum/channelGum-image5.png",
+      "/channelGum/channelGum-image6.png",
+    ],
+    category: ["web"],
+    caseStudy: {
+      tagline:
+        "A secure marketplace where creators and buyers trade YouTube channels, Instagram pages, and other digital assets — with built-in escrow protection, live chat, and multi-gateway payments.",
+      overview: `Built ChannelGum, a full-featured digital asset marketplace that lets sellers list monetized YouTube channels, Instagram pages, and other social accounts for sale, while buyers browse, filter, and safely purchase through a dedicated escrow flow.
+
+The Challenge:
+Buying and selling digital accounts is high-trust and high-risk — buyers need proof of channel performance before paying, and sellers need protection from chargebacks or fraudulent transfers. The platform had to combine a discovery-friendly marketplace with a trustworthy, guided transaction process, all while supporting many different payment methods used across regions.
+
+The Solution:
+Designed a Laravel-powered backend covering listing management, category/platform filtering, seller dashboards, and a purpose-built escrow module. Every purchase spins up a dedicated deal thread with an Escrow Agent, tracked through a visible deal-progress timeline (Deal started → Fee covered → Account secured → Payment/Account delivered), with support for bank transfer, PayPal, Bitcoin, Zelle, Cash App, TransferWise, Google Pay, Payoneer, Western Union, and MoneyGram.
+
+Key Features:
+- Marketplace listings with platform, category, subscriber count, and monthly income filters
+- Channel detail pages with analytics screenshots, quick stats, and seller reputation
+- Multi-payment-method escrow deal flow with a dedicated Escrow Agent
+- Real-time deal-progress tracker (started, fee paid, account secured, delivered)
+- In-app messaging between buyer, seller, and escrow agent per deal
+- Seller dashboard with active listings, pending deals, total sales, and revenue
+- "Gum Power" seller tier/badge system to boost listing visibility
+- Create Listing flow with account URL, category, content type, pricing, and live preview
+
+Impact:
+Delivered an end-to-end marketplace that lets creators monetize their channels and buyers acquire established accounts with confidence, reducing fraud risk through a guided, transparent escrow process instead of direct peer-to-peer payments.`,
+      problem:
+        "Trading digital accounts (YouTube, Instagram, etc.) carries high fraud risk for both buyers and sellers, and no unified platform existed to combine discovery, verification, and safe payment handling in one flow.",
+      solution:
+        "Built a Laravel-based marketplace with category/platform browsing, detailed listing pages, and a dedicated escrow module — a per-deal chat with an Escrow Agent, a visible deal-progress tracker, and support for ten+ payment methods.",
+      impact:
+        "Enabled creators to list and sell channels confidently while giving buyers a transparent, escrow-backed path to purchase — replacing risky direct transfers with a guided, trackable transaction process.",
+      features: [
+        "Marketplace listings with platform & category filtering",
+        "Channel detail pages with analytics preview and quick stats",
+        "Escrow-based deal flow with dedicated Escrow Agent chat",
+        "Visual deal-progress tracker across 4 transaction stages",
+        "Support for 10+ payment methods (bank, PayPal, crypto, Zelle, etc.)",
+        "Seller dashboard: active listings, pending deals, sales, revenue",
+        "Gum Power seller tier system for boosted visibility",
+        "Create Listing flow with live preview before publishing",
+      ],
+      challenges: [
+        {
+          title: "Coordinating a Multi-Party Escrow Flow",
+          description:
+            "Each deal involves three parties — buyer, seller, and an escrow agent — and needed a clear, trackable state that all sides could follow without confusion.",
+          solution:
+            "Modeled each transaction as a Deal with a defined status pipeline (started → fee covered → account secured → delivered), surfaced as a shared timeline in the chat UI so every party sees the same progress in real time.",
+        },
+        {
+          title: "Supporting Many Regional Payment Methods",
+          description:
+            "Buyers and sellers across different regions expected different payment rails — bank transfer, mobile wallets, crypto, and remittance services like Western Union.",
+          solution:
+            "Built a flexible payment-method selector tied to each deal, keeping payment metadata separate from the escrow status logic so new methods can be added without touching the core deal workflow.",
+        },
+      ],
+      contributors: [{ name: "Sabbir Hassan", role: "Backend & Full Stack" }],
+      technologies: [
+        "Laravel",
+        "PHP",
+        "Blade",
+        "JavaScript",
+        "MySQL",
+        "Tailwind CSS",
+        "RESTful API",
+        "Authentication",
+        "Escrow/Payment Flow",
+      ],
+      liveLink: "",
+      githubLink: "",
+      youtubeId: "",
+      desktopReady: true,
+      mobileReady: false,
+      itsClientProject: false,
+    },
+  },
+
+  // ─────────────────────────────────────────────
+  // 5. SN Nutrition – Affiliate Wellness Commerce Platform
+  // ─────────────────────────────────────────────
+  {
+    id: "5",
+    title: "SN Nutrition – Affiliate Wellness Commerce Platform",
+    shortDescription:
+      "Laravel-based nutrition e-commerce platform with personalized product recommendations, live specialist consultations, and an affiliate/partner payout system",
+    year: "2025 – 2026",
+    role: "Full Stack Laravel Developer",
+    coverImage: "/sn-nutrition/Cover.png",
+    images: [
+      "/sn-nutrition/Cover.png",
+      "/sn-nutrition/1.png",
+      "/sn-nutrition/2.png",
+      "/sn-nutrition/3.png",
+      "/sn-nutrition/4.png",
+      "/sn-nutrition/5.png",
+      "/sn-nutrition/6.png",
+      "/sn-nutrition/7.png",
+      "/sn-nutrition/8.png",
+      "/sn-nutrition/9.png",
+      "/sn-nutrition/10.png",
+    ],
+    category: ["web"],
+    caseStudy: {
+      tagline:
+        "A Laravel 12 nutrition e-commerce platform that pairs a personalized product quiz and live specialist consultations with a full affiliate/partner earnings system.",
+      overview: `Built SN Nutrition, a full-stack nutrition and wellness commerce platform on Laravel 12 that goes beyond a standard storefront — combining a guided onboarding quiz for personalized supplement recommendations, live video consultations with specialists via the Zoom API, a store/pharmacy/gym locator, and a complete affiliate partner program with tracked links and payouts.
+
+The Challenge:
+Nutrition shoppers often don't know which product fits their goals, and the business wanted to connect customers with real specialists (not just sell products), while also giving partners/affiliates a way to earn commission by referring customers — all needing to be managed from one CMS-driven admin panel.
+
+The Solution:
+Engineered a Laravel 12 backend with a dual authentication system (JWT for the customer-facing API, Sanctum sessions for the admin dashboard), Spatie-powered role-based access control, and Google/social login via Laravel Socialite. A short onboarding quiz maps user answers to product recommendations, a dedicated ZoomService auto-generates consultation meeting links through Zoom's Server-to-Server OAuth, and an affiliate module generates trackable referral links per product with a partner dashboard showing lifetime earnings, monthly earnings, and pending payouts.
+
+Key Features:
+- Personalized onboarding quiz that recommends products from user answers
+- Live specialist consultation booking with automatic Zoom meeting creation
+- Affiliate/partner program: trackable referral links, commission tracking, payout history
+- Product comparison tool across nutrition facts, ingredients, and features
+- Gym & pharmacy locator integrated into the storefront
+- Cart, wishlist, promo codes, and full checkout with bank transfer support
+- JWT-secured REST API for customers, Sanctum-session admin dashboard
+- Google/social login via Laravel Socialite
+- Role-based access control (RBAC) via Spatie Laravel Permission
+- Fully CMS-driven pages (home, about, FAQ, offers, banners) editable from admin
+
+Impact:
+Delivered a single Laravel codebase that turns a nutrition storefront into a guided wellness platform — matching customers to products and specialists automatically, while giving the business a self-serve affiliate channel to grow sales through partner referrals.`,
+      problem:
+        "Customers needed guidance choosing the right nutrition products and access to real specialists, while the business also needed a self-serve way for affiliates/partners to refer customers and earn tracked commissions — all from one admin-managed platform.",
+      solution:
+        "Built a Laravel 12 platform combining a personalized onboarding quiz, Zoom-integrated consultation booking, an affiliate link/payout system, and a full e-commerce flow (cart, wishlist, promo codes, checkout), secured with JWT for the API and Sanctum + Spatie RBAC for the admin dashboard.",
+      impact:
+        "Delivered a guided wellness commerce experience that pairs customers with the right products and specialists automatically, while giving partners a self-service dashboard to track referral earnings and payouts.",
+      features: [
+        "Personalized onboarding quiz mapping answers to product recommendations",
+        "Live specialist consultations with auto-generated Zoom meetings",
+        "Affiliate program with trackable referral links & payout history",
+        "Product comparison across nutrition facts and ingredients",
+        "Gym & pharmacy locator",
+        "Cart, wishlist, promo codes & bank-transfer checkout",
+        "Dual auth: JWT for API clients, Sanctum sessions for admin",
+        "RBAC via Spatie Laravel Permission",
+        "Google/social login via Laravel Socialite",
+        "CMS-driven pages managed entirely from the admin panel",
+      ],
+      challenges: [
+        {
+          title: "Auto-Scheduling Specialist Consultations",
+          description:
+            "Booking a consultation needed to instantly produce a working video meeting link without manual coordination between the customer and specialist.",
+          solution:
+            "Built a dedicated ZoomService that authenticates via Zoom's Server-to-Server OAuth and creates a meeting on booking confirmation, attaching the join link directly to the ConsultationBooking record.",
+        },
+        {
+          title: "Tracking Affiliate Attribution & Payouts",
+          description:
+            "Referral links needed to reliably attribute orders to the right partner and compute commissions without double-counting or missing conversions.",
+          solution:
+            "Generated a unique tracking code per partner/product pair via an AffiliateLink model, linked it through the order pipeline, and aggregated commission data per partner into a dashboard showing lifetime earnings, this-month earnings, and pending payout status.",
+        },
+      ],
+      contributors: [{ name: "Sabbir Hassan", role: "Full Stack" }],
+      technologies: [
+        "Laravel 12",
+        "PHP",
+        "Blade",
+        "MySQL",
+        "JWT Auth",
+        "Laravel Sanctum",
+        "Laravel Socialite",
+        "Spatie Laravel Permission",
+        "Zoom API",
+        "Intervention Image",
+        "Yajra DataTables",
+        "Tailwind CSS",
+      ],
+      liveLink: "",
+      githubLink: "https://github.com/SabbirHassanShuvo/Sn_Nutrition_nasserlee",
+      youtubeId: "",
+      desktopReady: true,
+      mobileReady: false,
+      itsClientProject: true,
+    },
+  },
+  // ─────────────────────────────────────────────
+  // 6. Cylore Cloth – E-commerce Platform
+  // ─────────────────────────────────────────────
+  {
+    id: "6",
+    title: "Cylore Cloth – E-commerce Platform",
+    shortDescription:
+      "Full-stack clothing e-commerce platform with role-based admin dashboard, product variants, and multi-gateway payment checkout",
+    year: "2025 – 2026",
+    role: "Full Stack Developer",
+    coverImage: "/Cylore/Cover.png",
+    images: [
+      "/Cylore/Cover.png",
+      "/Cylore/1.png",
+      "/Cylore/2.png",
+      "/Cylore/3.png",
+      "/Cylore/4.png",
+      "/Cylore/5.png",
+      "/Cylore/6.png",
+    ],
+    category: ["web"],
+    caseStudy: {
+      tagline:
+        "A modern clothing e-commerce platform combining Laravel's backend security with a React SPA experience via Inertia.js, supporting product variants, role-based dashboards, and multiple payment gateways at checkout.",
+      overview: `Built Cylore Cloth, a full-stack e-commerce platform for a clothing brand using Laravel on the backend and React 19 on the frontend, bridged with Inertia.js so pages render as a fast single-page application without needing a separate REST API layer.
+
+The Challenge:
+The client needed a professional storefront where customers could browse categorized products with size/variant options, while staff with different access levels (Admin, Manager) managed inventory, categories, and orders — all backed by a checkout that could accept multiple payment methods, not just one gateway.
+
+The Solution:
+Used Laravel for authentication, authorization, and data handling, with Inertia.js passing data directly to React 19 views — avoiding a separate API while keeping the frontend fully componentized. Tailwind CSS v4 and Radix UI power the design system, with Framer Motion for interface animation. A three-tier role system (Admin, Manager, Customer) controls access to the dashboard, and checkout was built to support multiple payment methods so customers aren't locked into a single option.
+
+Key Features:
+- Authentication with login, registration, and forgot-password flows
+- Three-tier role-based access: Admin, Manager, Customer
+- User profile management with avatar/image upload
+- Category & sub-category organization for products
+- Full product management: create, edit, delete, image gallery, size/variant options
+- Storefront pages: Home, Shop, Product Details, Cart
+- Admin/Manager dashboard with full CRUD over users, categories, and products
+- Multi-gateway payment checkout, giving customers a choice of payment method
+- SPA-like navigation via Inertia.js with no full page reloads
+
+Impact:
+Delivered a scalable, professional e-commerce foundation that pairs Laravel's backend security with a smooth React SPA experience, giving the client both an easy-to-manage product catalog and a flexible, multi-option checkout for customers.`,
+      problem:
+        "The client needed a fast, professional storefront with variant-based products (size, gallery images), tiered staff access for managing inventory and orders, and a checkout that wasn't limited to a single payment provider.",
+      solution:
+        "Built a Laravel + Inertia.js + React 19 stack: Laravel handles auth, roles, and data; Inertia passes data straight to React views for an SPA feel; Tailwind CSS v4 and Radix UI drive the design system; checkout integrates multiple payment gateways so customers can choose how they pay.",
+      impact:
+        "Delivered a scalable e-commerce platform with role-based dashboards for staff, a smooth variant-aware shopping experience for customers, and flexible multi-payment checkout that increases conversion by not restricting customers to one payment method.",
+      features: [
+        "Login, registration & forgot-password authentication flow",
+        "Three-tier roles: Admin, Manager, Customer",
+        "Profile management with image upload",
+        "Category & sub-category product organization",
+        "Product CRUD with image gallery and size/variant management",
+        "Storefront: Home, Shop, Product Details, Cart",
+        "Admin/Manager dashboard with full CRUD control",
+        "Multi-gateway payment checkout (multiple payment methods supported)",
+        "SPA-style navigation via Inertia.js (no separate REST API needed)",
+      ],
+      challenges: [
+        {
+          title: "SPA Experience Without a Separate API Layer",
+          description:
+            "The client wanted a smooth, app-like frontend, but building and maintaining a full separate REST API alongside the Laravel backend would add unnecessary overhead.",
+          solution:
+            "Used Inertia.js to bridge Laravel controllers directly to React 19 pages, passing data as props on each request — keeping Laravel's routing/auth/validation while giving the frontend a true SPA feel with Vite-powered fast builds.",
+        },
+        {
+          title: "Supporting Multiple Payment Methods at Checkout",
+          description:
+            "Customers expected choice at checkout rather than being locked into a single payment provider, which meant the order/checkout flow had to stay payment-method agnostic.",
+          solution:
+            "Decoupled the checkout flow from any single gateway's logic, structuring order creation to accept a selected payment method and route to the corresponding gateway integration before confirming the order.",
+        },
+      ],
+      contributors: [{ name: "Sabbir Hassan", role: "Full Stack" }],
+      technologies: [
+        "Laravel",
+        "PHP",
+        "React 19",
+        "Inertia.js",
+        "Tailwind CSS v4",
+        "Radix UI",
+        "Framer Motion",
+        "Vite",
+        "MySQL",
+      ],
+      liveLink: "",
+      githubLink: "",
+      youtubeId: "",
+      desktopReady: true,
+      mobileReady: false,
+      itsClientProject: true,
+    },
+  },
+  // ─────────────────────────────────────────────
+  // 7. Employee Management System
+  // ─────────────────────────────────────────────
+  {
+    id: "7",
     title: "Employee Management System",
     shortDescription:
       "Advanced HR platform for employee records, attendance, roles & departments",
     year: "2025",
     role: "Full Stack Laravel Developer",
-    coverImage: "/neyo/neyo-cover.png",
+    coverImage: "/Ems/cover.jpg",
     images: [
-      "/neyo/neyo-cover.png",
-      "/neyo/neyo-dashboard.png",
-      "/neyo/neyo-image1.png",
-      "/neyo/neyo-image2.png",
+      "/Ems/cover.jpg",
+      "/Ems/1.jpg",
+      "/Ems/2.jpg",
+      "/Ems/3.jpg",
+      "/Ems/4.jpg",
+      "/Ems/5.jpg",
+      "/Ems/6.jpg",
+      "/Ems/7.jpg",
+      "/Ems/8.jpg",
+      "/Ems/9.jpg",
+      "/Ems/10.jpg",
+      "/Ems/11.jpg",
+      "/Ems/12.jpg",
+      "/Ems/13.jpg",
+      "/Ems/14.jpg",
+      "/Ems/15.jpg",
+      "/Ems/16.jpg",
     ],
     category: ["web"],
     caseStudy: {
@@ -519,83 +833,4 @@ Increased client consultation conversions by providing transparent service break
   // ─────────────────────────────────────────────
   // 5. Cylore E-Commerce Web App
   // ─────────────────────────────────────────────
-  {
-    id: "5",
-    title: "Cylore E-Commerce Web App",
-    shortDescription:
-      "Complete online clothing store platform managing products, orders, and customer interactions",
-    year: "2024 – 2025",
-    role: "Full Stack Developer",
-    coverImage: "/brip/brip-cover.png",
-    images: [
-      "/brip/brip-cover.png",
-      "/brip/brip-image1.png",
-      "/brip/brip-image2.png",
-    ],
-    category: ["web"],
-    caseStudy: {
-      tagline:
-        "A complete online clothing store platform managing products, orders, and customer interactions with a user-friendly interface.",
-      overview: `A complete online clothing store platform managing products, orders, and customer interactions with a user-friendly interface. Features a full catalog, cart and checkout system, user management, and administrative control.
-
-The Challenge:
-Creating an engaging online fashion shopping experience that balances rich visuals, fast product filtering, cart persistence, and secure order processing.
-
-The Solution:
-Built a complete online store using Laravel and modern web technologies with secure checkout flows, product inventory management, order tracking, and clean UI styling with Tailwind CSS.
-
-Key Features:
-• Product catalog with categorization
-• search
-• and dynamic filtering
-• Persistent shopping cart & streamlined checkout workflow
-• Customer authentication
-• profile & order tracking
-• Admin dashboard for inventory management & sales reporting
-• Secure payment gateway integration & automated invoicing
-• Fully responsive layout across all device viewports
-
-Impact:
-Provides an intuitive, high-speed shopping experience with structured order lifecycle management from checkout to fulfillment.`,
-      problem:
-        "Creating an engaging online fashion shopping experience that balances rich visuals, fast product filtering, cart persistence, and secure order processing.",
-      solution:
-        "Built a complete online store using Laravel and modern web technologies with secure checkout flows, product inventory management, order tracking, and clean UI styling with Tailwind CSS.",
-      impact:
-        "Provides an intuitive, high-speed shopping experience with structured order lifecycle management from checkout to fulfillment.",
-      features: [
-        "Product catalog with categorization, search, and dynamic filtering",
-        "Persistent shopping cart & streamlined checkout workflow",
-        "Customer authentication, profile & order tracking",
-        "Admin dashboard for inventory management & sales reporting",
-        "Secure payment gateway integration & automated invoicing",
-        "Fully responsive layout across all device viewports",
-      ],
-      challenges: [
-        {
-          title: "Cart State Synchronization & Inventory Locking",
-          description:
-            "Preventing race conditions where multiple customers attempt to purchase the last item in stock simultaneously.",
-          solution:
-            "Implemented database row locks and atomic stock decrement operations within checkout transactions.",
-        },
-      ],
-      contributors: [{ name: "Sabbir Hassan", role: "Full Stack Developer" }],
-      technologies: [
-        "Laravel",
-        "PHP",
-        "MySQL",
-        "JavaScript",
-        "Tailwind CSS",
-        "Payment Gateway",
-        "RESTful API",
-      ],
-      liveLink: "https://github.com/SabbirHassanShuvo/cylorecloth.git",
-      githubLink: "https://github.com/SabbirHassanShuvo/cylorecloth.git",
-      youtubeId: "dQw4w9WgXcQ",
-      desktopReady: true,
-      mobileReady: true,
-      itsClientProject: false,
-    },
-  },
 ];
