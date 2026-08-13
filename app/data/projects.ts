@@ -865,9 +865,9 @@ Delivered a lightweight, offline-capable Islamic habit-tracking app backed by a 
       "Laravel blog platform with custom-built authentication, three-tier role permissions, and a full admin/moderator content workflow",
     year: "2025",
     role: "Full Stack Developer",
-    coverImage: "/standblog/cover.jpg",
+    coverImage: "/standblog/Cover.jpg",
     images: [
-      "/standblog/cover.jpg",
+      "/standblog/Cover.jpg",
       "/standblog/1.jpg",
       "/standblog/2.jpg",
       "/standblog/3.jpg",
@@ -1078,7 +1078,6 @@ Delivered a lightweight, framework-free donor management platform that makes it 
       "/contruction/5.jpg",
       "/contruction/6.jpg",
       "/contruction/7.jpg",
-      "/contruction/8.jpg",
     ],
     category: ["web"],
     caseStudy: {
