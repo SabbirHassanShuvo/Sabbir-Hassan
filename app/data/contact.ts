@@ -24,7 +24,7 @@ export const contactData = {
       icon: "✉️",
     },
   ],
-  resumeLink: "https://sabbir-hassan.vercel.app/",
+  resumeLink: "https://drive.google.com/file/d/1lmnxQrSp9G2pdfqFR0fzEWJfpkrvM03C/view?usp=sharing",
 };
 
 export interface ContactFormData {

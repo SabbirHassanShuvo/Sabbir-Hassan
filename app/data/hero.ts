@@ -11,7 +11,7 @@ export const heroData = {
   },
   resume: {
     text: "Download CV",
-    link: "https://drive.google.com/file/d/1qxQAzQtp4RCUzoqGyU35Zrn245Y28WHL/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1lmnxQrSp9G2pdfqFR0fzEWJfpkrvM03C/view?usp=sharing",
   },
   github: {
     text: "GitHub",

@@ -4,6 +4,8 @@ import { heroData } from "@/app/data/hero";
 import { useEffect, useRef, useState } from "react";
 import { Download } from "lucide-react";
 import { Magnetic } from "@/app/components/motion/Magnetic";
+import { HeroTerminal } from "@/app/components/motion/HeroTerminal";
+import { VelocityMarquee } from "@/app/components/motion/VelocityMarquee";
 import HeroImage from "@/app/asserts/Hero-bg.png";
 import { 
   SiLaravel, SiPhp, SiMysql, SiDocker, 
@@ -367,6 +369,15 @@ export function Banner() {
                 </a>
               </Magnetic>
             </div>
+
+            {/* Live Interactive Terminal */}
+            <div
+              style={{
+                opacity: mounted ? 1 : 0,
+                transition: "opacity 0.9s ease 0.8s",
+              }}>
+              <HeroTerminal />
+            </div>
           </div>
 
           {/* RIGHT — 3D Profile Image */}
@@ -436,19 +447,9 @@ export function Banner() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        style={{ color: "rgba(255,255,255,0.3)", zIndex: 1 }}>
-        <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
-        <div
-          className="w-px h-10"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,212,255,0.7), transparent)",
-            animation: "pulseGlow 2s ease-in-out infinite",
-          }}
-        />
+      {/* Velocity Marquee */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <VelocityMarquee />
       </div>
 
       <style>{`

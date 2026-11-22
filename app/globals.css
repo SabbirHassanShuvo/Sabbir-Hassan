@@ -422,6 +422,15 @@ body::after {
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* ═══════════════════════════════════════════════════════════
    RESPONSIVE NAV
 ═══════════════════════════════════════════════════════════ */
@@ -483,6 +492,20 @@ body::after {
     height 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease,
     background-color 0.3s ease;
   backdrop-filter: blur(1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cursor-ring .cursor-text {
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #00d4ff;
+  font-family: monospace;
 }
 
 #cursor-ring.hover {
@@ -490,6 +513,20 @@ body::after {
   height: 56px;
   border-color: rgba(167, 139, 250, 0.65);
   background-color: rgba(167, 139, 250, 0.08);
+}
+
+#cursor-ring.project-hover {
+  width: 88px;
+  height: 88px;
+  border-color: rgba(0, 212, 255, 0.8);
+  background-color: rgba(6, 10, 20, 0.85);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+#cursor-ring.project-hover .cursor-text {
+  opacity: 1;
+  transform: scale(1);
 }
 
 #cursor.clicked {
