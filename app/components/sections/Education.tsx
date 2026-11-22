@@ -26,8 +26,8 @@ export function Education({ id = "education" }: { id?: string }) {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
-    <section id={id} className="w-full px-2 md:px-8 py-8 md:py-12">
-      <div className="max-w-7xl mx-auto bg-[#070c18]/20 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-2xl relative shadow-2xl shadow-cyan-950/20">
+    <section id={id} className="w-full py-16 md:py-24 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
         <div className="mb-12">
           <span className="section-label">06 — Education</span>

@@ -52,13 +52,13 @@ export function Contact({ id = "contact" }: { id?: string }) {
   };
 
   return (
-    <section id={id} className="w-full px-2 md:px-8 py-8 md:py-12">
-      <div className="max-w-7xl mx-auto bg-[#070c18]/30 backdrop-blur-2xl border border-white/10 p-8 md:p-12 rounded-3xl shadow-2xl shadow-cyan-950/20 relative overflow-hidden">
-        {/* Ambient glow backgrounds */}
-        <div className="pointer-events-none absolute -bottom-32 -left-32 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px]" />
-        <div className="pointer-events-none absolute -top-32 -right-32 w-80 h-80 bg-purple-500/10 rounded-full blur-[120px]" />
+    <section id={id} className="w-full py-20 md:py-32 relative overflow-hidden">
+      {/* Ambient glow backgrounds */}
+      <div className="pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px]" />
+      <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-[140px]" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch relative z-10">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
           {/* Left Column */}
           <div className="flex flex-col justify-between h-full">
             <div className="space-y-3">
