@@ -4,8 +4,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projectsData } from "@/app/data/projects";
 import DetailsImage from "../DetailsImages";
-import { Magnetic } from "@/app/components/motion/Magnetic";
-import { SpotlightCard } from "@/app/components/motion/SpotlightCard";
 import {
   ArrowLeft,
   Check,
@@ -37,14 +35,12 @@ export default async function ProjectPage({ params }: Props) {
       <div className="max-w-7xl mx-auto bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl">
         {/* ── Back button ── */}
         <div className="px-4 md:px-8 pt-8">
-          <Magnetic strength={0.25}>
-            <Link
-              href="/#projects"
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/60 hover:text-[#a78bfa] transition-colors duration-200">
-              <ArrowLeft size={14} />
-              Back to Projects
-            </Link>
-          </Magnetic>
+          <Link
+            href="/#projects"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/60 hover:text-[#a78bfa] transition-colors duration-200">
+            <ArrowLeft size={14} />
+            Back to Projects
+          </Link>
         </div>
 
         {/* ── Hero ── */}
@@ -307,15 +303,13 @@ export default async function ProjectPage({ params }: Props) {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap items-center gap-4 mt-4">
-            <Magnetic strength={0.35}>
-              <a
-                href={caseStudy.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 text-xs uppercase tracking-widest bg-[#a78bfa] text-[#0f0f0f] font-semibold rounded-full hover:bg-[#c4b5fd] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(167,139,250,0.3)]">
-                Live Demo ↗
-              </a>
-            </Magnetic>
+            <a
+              href={caseStudy.liveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 text-xs uppercase tracking-widest bg-[#a78bfa] text-[#0f0f0f] font-semibold rounded-full hover:bg-[#c4b5fd] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(167,139,250,0.3)]">
+              Live Demo ↗
+            </a>
 
             {/* GitHub CTA — disabled if client project */}
             {caseStudy.itsClientProject ? (
@@ -335,15 +329,13 @@ export default async function ProjectPage({ params }: Props) {
                 Private Source
               </div>
             ) : (
-              <Magnetic strength={0.35}>
-                <a
-                  href={caseStudy.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-3 text-xs uppercase tracking-widest border border-[rgba(167,139,250,0.35)] text-[#a78bfa] rounded-full hover:bg-[rgba(167,139,250,0.1)] hover:border-[#a78bfa] hover:scale-[1.02] active:scale-[0.98] transition-all">
-                  GitHub ↗
-                </a>
-              </Magnetic>
+              <a
+                href={caseStudy.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 text-xs uppercase tracking-widest border border-[rgba(167,139,250,0.35)] text-[#a78bfa] rounded-full hover:bg-[rgba(167,139,250,0.1)] hover:border-[#a78bfa] hover:scale-[1.02] active:scale-[0.98] transition-all">
+                GitHub ↗
+              </a>
             )}
           </div>
         </div>
