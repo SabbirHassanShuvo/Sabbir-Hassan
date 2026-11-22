@@ -23,13 +23,12 @@ export function CustomCursor() {
     const ring = ringRef.current;
     if (!cursor || !ring) return;
 
+    // Show immediately
     cursor.style.opacity = "1";
     ring.style.opacity = "1";
 
     let targetX = -100;
     let targetY = -100;
-    let prevX = -100;
-    let prevY = -100;
     let ringX = -100;
     let ringY = -100;
     let animationFrameId: number;
@@ -43,31 +42,18 @@ export function CustomCursor() {
         hasMovedMouse = true;
         ringX = targetX;
         ringY = targetY;
-        prevX = targetX;
-        prevY = targetY;
         cursor.style.opacity = "1";
         ring.style.opacity = "1";
       }
+
+      // Direct DOM update — no React re-render, instant
+      cursor.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) translate(-50%, -50%)`;
     };
 
     const render = () => {
       if (hasMovedMouse) {
-        // Calculate velocity and angle
-        const vx = targetX - prevX;
-        const vy = targetY - prevY;
-        prevX = targetX;
-        prevY = targetY;
-
-        const velocity = Math.hypot(vx, vy);
-        const angle = (Math.atan2(vy, vx) * 180) / Math.PI;
-        const scaleX = Math.min(1 + velocity * 0.015, 1.9);
-        const scaleY = Math.max(1 - velocity * 0.008, 0.65);
-
-        cursor.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) translate(-50%, -50%) rotate(${angle}deg) scale(${scaleX}, ${scaleY})`;
-
-        // Smooth trailing ring
-        ringX += (targetX - ringX) * 0.16;
-        ringY += (targetY - ringY) * 0.16;
+        ringX += (targetX - ringX) * 0.18;
+        ringY += (targetY - ringY) * 0.18;
         ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
       }
       animationFrameId = requestAnimationFrame(render);
@@ -98,25 +84,16 @@ export function CustomCursor() {
 
     const onMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
-      if (target) {
-        if (target.closest('[data-cursor="project"]')) {
-          ring.classList.add("project-hover");
-          cursor.style.opacity = "0";
-        } else if (target.closest(interactiveSelector)) {
-          cursor.classList.add("hover");
-          ring.classList.add("hover");
-        }
+      if (target && target.closest(interactiveSelector)) {
+        cursor.classList.add("hover");
+        ring.classList.add("hover");
       }
     };
 
     const onMouseOut = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
-      if (target) {
+      if (target && target.closest(interactiveSelector)) {
         const related = e.relatedTarget as HTMLElement | null;
-        if (!related || !related.closest('[data-cursor="project"]')) {
-          ring.classList.remove("project-hover");
-          cursor.style.opacity = "1";
-        }
         if (!related || !related.closest(interactiveSelector)) {
           cursor.classList.remove("hover");
           ring.classList.remove("hover");
@@ -159,9 +136,7 @@ export function CustomCursor() {
         ref={ringRef}
         id="cursor-ring"
         style={{ opacity: 0, pointerEvents: "none" }}
-      >
-        <span className="cursor-text pointer-events-none select-none">VIEW ↗</span>
-      </div>
+      />
     </>
   );
 }

@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import logo from "@/app/asserts/Logo4.png";
 import Image from "next/image";
 import Link from "next/link";
-import { Magnetic } from "@/app/components/motion/Magnetic";
 
 const navLinks = [
   { href: "#experience", label: "Experience" },
@@ -72,17 +71,15 @@ export function Navigation() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <ul className="hidden md:flex gap-10 list-none items-center">
+        <ul className="hidden md:flex gap-10 list-none">
           {navLinks.map(({ href, label }) => (
             <li key={href}>
-              <Magnetic strength={0.3}>
-                <a
-                  href={href}
-                  onClick={(e) => handleNavClick(e, href)}
-                  className="text-xs font-light tracking-wider text-white/70 hover:text-[#00d4ff] transition-colors duration-300 uppercase py-1 px-2">
-                  {label}
-                </a>
-              </Magnetic>
+              <a
+                href={href}
+                onClick={(e) => handleNavClick(e, href)}
+                className="text-xs font-light tracking-wider text-white/70 hover:text-[#00d4ff] transition-colors duration-300 uppercase">
+                {label}
+              </a>
             </li>
           ))}
         </ul>

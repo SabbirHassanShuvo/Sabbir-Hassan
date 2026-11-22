@@ -3,9 +3,7 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
-import { LocationEdit, Mail, Phone, FileDown, Send, Sparkles } from "lucide-react";
-import { contactData } from "@/app/data/contact";
-import { Magnetic } from "@/app/components/motion/Magnetic";
+import { LocationEdit, Mail, Phone } from "lucide-react";
 
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
@@ -52,22 +50,13 @@ export function Contact({ id = "contact" }: { id?: string }) {
   };
 
   return (
-    <section id={id} className="w-full py-20 md:py-32 relative overflow-hidden">
-      {/* Ambient glow backgrounds */}
-      <div className="pointer-events-none absolute -bottom-32 -left-32 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px]" />
-      <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 bg-purple-500/10 rounded-full blur-[140px]" />
-
-      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
+    <section id={id} className="w-full px-2 md:px-8 py-8 md:py-12">
+      <div className="max-w-7xl mx-auto bg-[#070c18]/20 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-2xl shadow-2xl shadow-cyan-950/20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-          {/* Left Column */}
+          {/* Left */}
           <div className="flex flex-col justify-between h-full">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5">
-                <Sparkles size={12} className="text-cyan-400" />
-                <span className="text-[11px] font-mono tracking-widest uppercase text-cyan-300">
-                  07 — Contact & Connect
-                </span>
-              </div>
+            <div className="space-y-2">
+              <span className="section-label">07 — Contact</span>
               <h2 className="text-5xl md:text-6xl font-light font-serif text-white">
                 Let&apos;s build
               </h2>
@@ -75,68 +64,65 @@ export function Contact({ id = "contact" }: { id?: string }) {
                 something
               </h2>
               <h2 className="text-5xl md:text-6xl font-light font-serif text-white">
-                <em className="gradient-text">extraordinary.</em>
+                <em className="gradient-text">together.</em>
               </h2>
             </div>
 
-            <div className="mt-8">
-              {/* Direct CV Download Pill & Social Links */}
-              <div className="flex flex-wrap items-center gap-4 mb-6">
-                <Magnetic strength={0.35}>
-                  <a
-                    href={contactData.resumeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-black font-semibold text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,212,255,0.35)] hover:shadow-[0_0_30px_rgba(0,212,255,0.5)] transition-all">
-                    <FileDown size={14} />
-                    <span>Download CV</span>
-                  </a>
-                </Magnetic>
-
-                <Magnetic strength={0.25}>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm text-white/80 hover:text-cyan-400 transition-colors font-mono px-3 py-2 rounded-lg bg-white/[0.03] border border-white/10"
-                    href="https://github.com/SabbirHassanShuvo">
-                    GitHub ↗
-                  </a>
-                </Magnetic>
-
-                <Magnetic strength={0.25}>
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm text-white/80 hover:text-cyan-400 transition-colors font-mono px-3 py-2 rounded-lg bg-white/[0.03] border border-white/10"
-                    href="https://www.linkedin.com/in/sabbirhassan100">
-                    LinkedIn ↗
-                  </a>
-                </Magnetic>
+            <div className="mt-6">
+              {/* Social Links */}
+              <div className="flex flex-wrap items-center gap-6">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-base text-white/80 hover:text-[#00d4ff] hover:-translate-y-0.5 transition-all duration-300 font-medium"
+                  href="https://github.com/SabbirHassanShuvo">
+                  GitHub ↗
+                </a>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-base text-white/80 hover:text-[#00d4ff] hover:-translate-y-0.5 transition-all duration-300 font-medium"
+                  href="https://www.linkedin.com/in/sabbirhassan100">
+                  LinkedIn ↗
+                </a>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-base text-white/80 hover:text-[#00d4ff] hover:-translate-y-0.5 transition-all duration-300 font-medium"
+                  href="https://sabbir-hassan.vercel.app/">
+                  Portfolio ↗
+                </a>
               </div>
 
               {/* Contact Info */}
-              <div className="pt-5 border-t border-white/10 space-y-3 font-mono">
+              <div className="mt-4 pt-4 border-t border-white/10 space-y-3">
                 <a
-                  href={`mailto:${contactData.email}`}
-                  className="flex items-center gap-3 text-white/70 hover:text-cyan-400 transition-colors text-sm">
-                  <Mail size={16} className="text-cyan-400" />
-                  <span>{contactData.email}</span>
+                  href="mailto:sabbirhassanshuvo71@gmail.com"
+                  className="flex items-center gap-3 text-white/60 hover:text-[#00d4ff] transition-all text-base">
+                  <span>
+                    <Mail size={16} />
+                  </span>
+                  <span>sabbirhassanshuvo71@gmail.com</span>
                 </a>
                 <a
-                  href={`tel:${contactData.phone}`}
-                  className="flex items-center gap-3 text-white/70 hover:text-cyan-400 transition-colors text-sm">
-                  <Phone size={16} className="text-cyan-400" />
-                  <span>{contactData.phone}</span>
+                  href="tel:01639208102"
+                  className="flex items-center gap-3 text-white/60 hover:text-[#00d4ff] transition-all text-base">
+                  <span>
+                    <Phone size={16} />
+                  </span>
+                  <span>01639208102</span>
                 </a>
-                <p className="flex items-center gap-3 text-white/70 text-sm">
-                  <LocationEdit size={16} className="text-cyan-400" />
-                  <span>{contactData.location}</span>
+                <p className="flex items-center gap-3 text-white/60 text-base">
+                  <span>
+                    <LocationEdit size={16} />
+                  </span>
+                  <span>Dhaka, Bangladesh</span>
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Form */}
+          {/* Right */}
           <div className="flex flex-col justify-center h-full gap-4">
             <input
               type="text"
@@ -144,34 +130,31 @@ export function Contact({ id = "contact" }: { id?: string }) {
               value={form.name}
               onChange={handleChange}
               placeholder="Your Name"
-              className="w-full bg-[#0b1326]/80 border border-white/15 text-white placeholder-white/40 px-4 py-3.5 rounded-xl focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-all"
+              className="w-full bg-[#0b1326] border border-white/15 text-white placeholder-white/40 px-4 py-3 rounded-lg focus:border-[#00d4ff] focus:ring-1 focus:ring-[#00d4ff] focus:bg-[#0e1933] outline-none transition-all"
             />
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="Your Email Address"
-              className="w-full bg-[#0b1326]/80 border border-white/15 text-white placeholder-white/40 px-4 py-3.5 rounded-xl focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-all"
+              placeholder="Your Email"
+              className="w-full bg-[#0b1326] border border-white/15 text-white placeholder-white/40 px-4 py-3 rounded-lg focus:border-[#00d4ff] focus:ring-1 focus:ring-[#00d4ff] focus:bg-[#0e1933] outline-none transition-all"
             />
             <textarea
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="Write your project details or inquiry here..."
-              rows={5}
-              className="w-full bg-[#0b1326]/80 border border-white/15 text-white placeholder-white/40 px-4 py-3.5 rounded-xl focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none resize-none transition-all"
+              placeholder="Your Message"
+              rows={6}
+              className="w-full bg-[#0b1326] border border-white/15 text-white placeholder-white/40 px-4 py-3 rounded-lg focus:border-[#00d4ff] focus:ring-1 focus:ring-[#00d4ff] focus:bg-[#0e1933] outline-none resize-none transition-all"
             />
-            <Magnetic strength={0.2}>
-              <button
-                type="button"
-                onClick={handleSubmit}
-                disabled={loading}
-                className="w-full border border-cyan-400/50 bg-cyan-400/10 text-cyan-300 hover:bg-cyan-400/20 hover:border-cyan-400 py-3.5 rounded-xl uppercase tracking-widest text-xs font-mono font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,212,255,0.15)] hover:shadow-[0_0_30px_rgba(0,212,255,0.3)]">
-                <Send size={14} />
-                <span>{loading ? "Transmitting..." : "Send Dispatch"}</span>
-              </button>
-            </Magnetic>
+            <button
+              type="button"
+              onClick={handleSubmit}
+              disabled={loading}
+              className="w-full border border-[rgba(0,212,255,0.45)] bg-[rgba(0,212,255,0.12)] text-[#00d4ff] hover:bg-[rgba(0,212,255,0.22)] hover:border-[rgba(0,212,255,0.8)] py-3 rounded-lg uppercase tracking-widest text-sm font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+              {loading ? "Sending..." : "Send Message"}
+            </button>
           </div>
         </div>
       </div>
