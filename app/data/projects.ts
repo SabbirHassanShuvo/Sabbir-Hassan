@@ -43,10 +43,308 @@ export interface Project {
 
 export const projectsData: Project[] = [
   // ─────────────────────────────────────────────
-  // 1. Swipe Sale – Local Marketplace Mobile App
+  // 1. PitecHR – Multi-Tenant SaaS HRMS & Payroll
   // ─────────────────────────────────────────────
   {
     id: "1",
+    title: "PitecHR – Multi-Tenant SaaS HRMS & Payroll Solution",
+    shortDescription:
+      "Cloud-based multi-tenant SaaS HRMS & automated payroll management platform",
+    year: "2025",
+    role: "Full Stack / Backend Laravel Developer",
+    coverImage: "/pitechr/cover.png",
+    images: [
+      "/pitechr/cover.png",
+      "/pitechr/1.png",
+      "/pitechr/2.png",
+      "/pitechr/3.png",
+      "/pitechr/4.png",
+      "/pitechr/5.png",
+    ],
+    category: ["web"],
+    caseStudy: {
+      tagline:
+        "An enterprise-grade multi-tenant SaaS platform automating employee lifecycles, biometric attendance syncing, dynamic payroll, tax calculations, and self-service workflows.",
+      overview: `PitecHR is a cloud-based multi-tenant SaaS human resource management system (HRMS) engineered to automate enterprise human resource operations, biometric attendance tracking, dynamic payroll, taxation, and employee performance management. Built with a scalable multi-company architecture, PitecHR enables diverse organizations to configure bespoke organizational hierarchies, subscription tiers, flexible shift rostering, and multi-tiered approval chains while ensuring absolute data isolation and high throughput.
+
+The platform addresses complex organizational pain points by bridging physical biometric hardware (ZKTeco turnstiles and scanners) with cloud-based database clusters, automating daily attendance regularization, late punch approvals, and annual leave accruals through scheduled background workers.
+
+Its financial and payroll subsystem computes complex salary structures—including basic allowances, provident fund contributions, festival bonuses, and regulatory tax slabs—with automated mPDF payslip rendering and high-volume Excel exports, drastically streamlining HR administrative workflows.`,
+      problem:
+        "Managing decentralized HR processes across growing companies often results in fragmented employee data, error-prone manual payroll calculations, compliance oversights, and disconnected biometric hardware. High employee counts also create severe performance bottlenecks when generating monthly salary sheets, annual tax deductions, and daily attendance logs across multiple branches and departments.",
+      solution:
+        "Engineered an enterprise-grade multi-tenant Laravel backend with robust database indexing and queue-driven background workers. Designed automated biometric log synchronization, a configurable tax and deduction engine, automated annual leave accrual schedulers, and an intuitive Employee Self-Service (ESS) portal. Optimized data grids with Yajra DataTables and cached critical queries using Redis to ensure sub-second response times across millions of records.",
+      impact:
+        "Empowered multiple organizations to cut monthly payroll processing time from days to minutes, achieved 100% precision in attendance and tax compliance, and reduced administrative HR queries by over 70% through employee self-service capabilities.",
+      features: [
+        "Multi-Tenant SaaS Architecture & Subscription Management",
+        "Biometric Device Integration & Real-time Punch Log Synchronization",
+        "Dynamic Payroll Computation with Configurable Allowances & Deductions",
+        "Automated Income Tax Slab Engine & Compliance Handling",
+        "Employee Self-Service (ESS) Portal for Leaves, Shifts & Requests",
+        "Automated Earned Leave (EL) Accrual & Encashment via Background Schedulers",
+        "Shift Rostering, Grace Periods & Overtime (OT) Automation",
+        "Bulk Payslip Generation via mPDF & Financial Ledger Export via Excel",
+        "Granular Role-Based Access Control (Spatie RBAC)",
+        "Server-Side DataTables with Redis Caching for High-Volume Records",
+      ],
+      challenges: [
+        {
+          title: "Biometric Hardware Synchronization & Shift Variations",
+          description:
+            "Integrating live attendance logs from varied biometric hardware models while handling overnight night shifts, dynamic grace periods, and late arrival approvals.",
+          solution:
+            "Built an asynchronous ingestion pipeline with automated fallback parsing, mapping biometric punch logs against flexible shift schedules with automated late-entry detection.",
+        },
+        {
+          title: "Complex Multi-Tier Payroll, Gratuity & Tax Calculations",
+          description:
+            "Calculating net salaries, provident funds, loans, festival bonuses, and regulatory tax brackets accurately without blocking web requests during month-end bulk processing.",
+          solution:
+            "Implemented queue-backed transactional background jobs utilizing Laravel Horizon and Redis, batch-processing employee salaries with idempotent accounting records.",
+        },
+        {
+          title: "Multi-Tenant Data Isolation & Query Performance",
+          description:
+            "Ensuring zero cross-tenant data leaks and keeping high-volume attendance and report queries responsive under heavy concurrency.",
+          solution:
+            "Architected tenant scoping at the model level, indexed high-cardinality foreign keys, and integrated Yajra DataTables with server-side pagination and query caching.",
+        },
+      ],
+      contributors: [
+        { name: "Sabbir Hassan", role: "Full Stack / Backend Laravel Developer" },
+        { name: "Prediction Infotech Team", role: "Product & Engineering Team" },
+      ],
+      technologies: [
+        "PHP 8.1+",
+        "Laravel 10",
+        "MySQL",
+        "Multi-Tenancy",
+        "Redis",
+        "Spatie RBAC",
+        "Yajra DataTables",
+        "mPDF",
+        "Maatwebsite Excel",
+        "Biometric Device Sync",
+        "DigitalOcean",
+        "Queue Workers",
+        "Cron Schedulers",
+        "Bootstrap 5",
+        "jQuery / AJAX",
+        "RESTful API",
+      ],
+      liveLink: "https://pitechr.com/",
+      githubLink: null,
+      youtubeId: "",
+      desktopReady: true,
+      mobileReady: true,
+      itsClientProject: true,
+    },
+  },
+  // ─────────────────────────────────────────────
+  // 2. Reality Check – Background & Document Verification SaaS
+  // ─────────────────────────────────────────────
+  {
+    id: "2",
+    title: "Reality Check – Background & Real Document Verification SaaS",
+    shortDescription:
+      "Enterprise digital background screening & authentic document verification platform with field agent dispatch",
+    year: "2025",
+    role: "Full Stack / Backend Laravel Developer",
+    coverImage: "/realitycheck/cover.png",
+    images: [
+      "/realitycheck/cover.png",
+      "/realitycheck/1.png",
+      "/realitycheck/2.png",
+      "/realitycheck/3.png",
+      "/realitycheck/4.png",
+      "/realitycheck/5.png",
+    ],
+    category: ["web"],
+    caseStudy: {
+      tagline:
+        "An enterprise-grade SaaS platform automating multi-dimensional background screening, authentic document verification, field agent dispatching, financial billing, and certified digital reporting.",
+      overview: `Reality Check is an all-in-one digital background screening and real document verification platform engineered for corporate enterprises, financial institutions, and specialized investigation agencies. The platform automates the end-to-end verification lifecycle—spanning candidate onboarding, geographical task dispatching, on-site field visits, multi-institution document authentication, agency financial tracking, and certified assessment reporting.
+
+By standardizing field operations and centralizing verification workflows, Reality Check replaces error-prone paperwork with structured audit trails, real-time agent tracking, and high-security role-based controls. Built with a robust Laravel 10 backend and hosted on DigitalOcean, the system effortlessly orchestrates complex status transitions across thousands of concurrent verifications.
+
+Its integrated financial engine automates client billing, per-verification pricing matrices, operational disbursals, and field agent performance incentives, delivering a truly unified operational and financial management ecosystem.`,
+      problem:
+        "Traditional background screening workflows rely heavily on manual paperwork, untracked field agent visits, fragmented communication channels, and slow manual cross-referencing with universities and registries. This decentralized model causes critical turnaround delays, fraudulent report risks, billing inconsistencies, and severe lack of operational visibility for corporate clients.",
+      solution:
+        "Engineered an enterprise-grade modular SaaS architecture in Laravel 10 deployed on DigitalOcean. Built a multi-dimensional verification engine supporting address checks with geotagged photo evidence, academic board document validation, NID/police record checks, and dynamic agent workload dispatching based on administrative regions. Integrated automated DomPDF reporting with digital signatures and a complete agency billing and incentive payout engine.",
+      impact:
+        "Accelerated verification turnaround time from weeks to under 48 hours, achieved 100% auditable documentation with verifiable evidence, eliminated billing disputes through automated invoicing, and streamlined field agent dispatch across all administrative divisions.",
+      features: [
+        "Multi-Dimensional Verification Engine (Address, Academic, Employment & Identity)",
+        "Real Document Verification across Universities, Boards & Government Registries",
+        "Geographical Field Operations & Dynamic Agent Dispatch (Division to Union)",
+        "Real-Time Field Agent Workload, GPS Tracking & Case Resolution Monitoring",
+        "Dynamic Client Invoicing with Per-Verification Pricing & Tax Automation",
+        "Operational Disbursal Vouchers & Automated Team Performance Incentive Engine",
+        "One-Click Certified Assessment Reports (PDF) with Digital Signatures",
+        "High-Performance Excel Bulk Import & Analytical Export via DataTables",
+        "Strict Multi-Tenant Role-Based Access Control (Spatie RBAC)",
+        "Event-Driven System Notifications & In-App Status Transition Alerts",
+      ],
+      challenges: [
+        {
+          title: "Geographical Field Dispatch & Multi-Tier Administrative Routing",
+          description:
+            "Dynamically distributing and routing verification orders to local field agents across complex administrative boundaries (Division, District, Upazila, Union) while balancing individual agent workloads.",
+          solution:
+            "Implemented a normalized regional hierarchy lookup engine with automated routing logic that evaluates active agent capacity, geographical proximity, and real-time caseloads.",
+        },
+        {
+          title: "High-Volume Certified PDF Generation with Evidence Verification",
+          description:
+            "Generating multi-page official audit reports containing embedded high-resolution photo evidence, authorized digital signatures, and tamper-resistant layouts without server memory spikes.",
+          solution:
+            "Optimized Barryvdh Laravel-DomPDF rendering with stream buffers, compressed image processing pipelines, and queue-driven background PDF generation.",
+        },
+        {
+          title: "Automated Agency Finance & Dynamic Incentive Calculations",
+          description:
+            "Managing variable pricing models per client, operational travel expense disbursals, and complex performance-based team incentive distributions across disparate case types.",
+          solution:
+            "Designed a centralized ledger and calculation service enforcing transactional integrity for partial/full invoice states and automated incentive allocation upon case completion.",
+        },
+      ],
+      contributors: [
+        { name: "Sabbir Hassan", role: "Full Stack / Backend Laravel Developer" },
+        { name: "Prediction Infotech Team", role: "Product & Engineering Team" },
+      ],
+      technologies: [
+        "PHP 8+",
+        "Laravel 10",
+        "MySQL",
+        "DigitalOcean",
+        "Eloquent ORM",
+        "Spatie RBAC",
+        "Blade",
+        "Bootstrap 5",
+        "JavaScript / jQuery",
+        "DataTables",
+        "DomPDF",
+        "Maatwebsite Excel",
+        "RESTful API",
+        "Real Document Verification",
+      ],
+      liveLink: "https://realitycheck.ink/",
+      githubLink: null,
+      youtubeId: "",
+      desktopReady: true,
+      mobileReady: true,
+      itsClientProject: true,
+    },
+  },
+  // ─────────────────────────────────────────────
+  // 3. HuntMe – Recruitment & Talent Acquisition SaaS
+  // ─────────────────────────────────────────────
+  {
+    id: "3",
+    title: "HuntMe – Recruitment & Talent Acquisition SaaS",
+    shortDescription:
+      "Enterprise headless SaaS recruitment & talent acquisition platform with automated ATS, CV builder & subscription engine",
+    year: "2025",
+    role: "Full Stack / Backend Laravel Developer",
+    coverImage: "/huntme/cover.png",
+    images: [
+      "/huntme/cover.png",
+      "/huntme/1.png",
+      "/huntme/2.png",
+      "/huntme/3.png",
+      "/huntme/4.png",
+      "/huntme/5.png",
+      "/huntme/6.png",
+      "/huntme/7.png",
+      "/huntme/8.png",
+    ],
+    category: ["web"],
+    caseStudy: {
+      tagline:
+        "An enterprise-ready, headless SaaS backend API powering modern talent recruitment, applicant tracking (ATS), dynamic CV generation, interview scheduling, and tiered monetization.",
+      overview: `HuntMe is an enterprise-grade, headless SaaS recruitment and talent acquisition platform designed to seamlessly connect job seekers with hiring organizations and corporate headhunters. Built on Laravel 12 with an API-first architecture, the platform powers the entire recruitment lifecycle—from candidate onboarding, skill taxonomy mapping, and customizable job postings with screening questionnaires, to multi-stage applicant tracking (ATS), interview scheduling, and subscription-driven monetization.
+
+The platform provides stateless JWT authentication with automated token refresh and granular multi-tenant role guards, isolating candidate, employer, and platform administrator endpoints. It features an automated CV parsing and profile readiness engine that scores candidate completeness and enables one-click downloadable PDF resumes rendered via DomPDF.
+
+Recruiters benefit from an advanced candidate search matrix with dynamic view-quota tracking, while hiring companies can subscribe to flexible tier plans (Free, Pro, Enterprise) that automatically govern job posting allowances, featured listing boosts, and talent discovery quotas.`,
+      problem:
+        "Modern recruitment platforms frequently suffer from monolithic coupling, slow candidate discovery filters, insecure role bleed between applicants and employers, and complex non-standardized hiring pipelines. Organizations struggle with managing multi-stage applicant statuses, screening candidate qualifications effectively, and tracking recruitment monetization quotas without dedicated ATS infrastructure.",
+      solution:
+        "Architected a high-performance headless RESTful API on Laravel 12 and PHP 8.2+ adhering to strict versioned standards (/api/v1/). Implemented stateless JWT authentication and Spatie RBAC with custom middleware guards to enforce absolute tenant isolation. Developed an end-to-end ATS pipeline with custom screening questionnaires, interview scheduling, real-time profile scoring, and dynamic PDF CV generation. Designed a scalable subscription management engine that governs employer quotas and usage analytics.",
+      impact:
+        "Delivered sub-100ms API response times across talent search queries, streamlined candidate screening through automated questionnaires, enabled seamless cross-platform consumption (web/mobile) via standardized REST contracts, and automated employer monetization pipelines.",
+      features: [
+        "Headless RESTful API Architecture with Versioned Endpoints (/api/v1/)",
+        "Stateless JWT Authentication (tymon/jwt-auth) with Automated Token Refresh",
+        "Fine-Grained Role-Based Access Control (Spatie RBAC) with Custom Employer/Candidate Guards",
+        "End-to-End Applicant Tracking System (ATS) with Multi-Stage Hiring Pipeline",
+        "Customizable Candidate Screening Questionnaires & Application Review Notes",
+        "Dynamic CV Builder with Real-Time Profile Readiness & Scoring Algorithm",
+        "One-Click PDF Resume Generation using Barryvdh Laravel-DomPDF",
+        "Advanced Talent Search Engine with Skills Taxonomy & View Quota Enforcement",
+        "SaaS Subscription Engine with Tiered Packages (Free, Pro, Enterprise) & Quota Limits",
+        "Interview Coordination, Calendar Logging & Multi-Record Bulk Operations",
+        "Super Admin Centralized Metrics, Revenue Analytics & Content Management",
+        "Containerized Deployment Workflow using Docker & Docker Compose",
+      ],
+      challenges: [
+        {
+          title: "Stateless Multi-Role Security & Horizontal Privilege Isolation",
+          description:
+            "Isolating endpoints and sensitive data between candidate profiles, employer dashboards, and super-admin controls without stateful session overhead.",
+          solution:
+            "Implemented stateless JWT authentication coupled with Spatie RBAC and custom route middleware guards (check.user.type) ensuring strict endpoint boundaries and zero privilege escalation.",
+        },
+        {
+          title: "High-Performance Candidate Discovery & Quota Tracking",
+          description:
+            "Enabling recruiters to query thousands of talent profiles by multi-dimensional skill taxonomies, experience, and location while strictly enforcing per-plan CV view quotas.",
+          solution:
+            "Constructed indexed relational database schemas with Eloquent query scopes and an atomic transaction logger (CVViewLog) that verifies and deducts employer view quotas in real time.",
+        },
+        {
+          title: "Headless REST Architecture & Dynamic PDF Resume Rendering",
+          description:
+            "Generating professional, print-ready PDF resumes on-the-fly from structured profile databases while maintaining low memory consumption and strict API latency budgets.",
+          solution:
+            "Streamlined DomPDF template compilation using optimized CSS stylesheets, caching static assets, and streaming binary response buffers directly through API response wrappers.",
+        },
+      ],
+      contributors: [
+        { name: "Sabbir Hassan", role: "Full Stack / Backend Laravel Developer" },
+        { name: "Prediction Infotech Team", role: "Product & Engineering Team" },
+      ],
+      technologies: [
+        "Laravel 12",
+        "PHP 8.2+",
+        "MySQL",
+        "RESTful API (v1)",
+        "JWT Authentication",
+        "Laravel Sanctum",
+        "Spatie RBAC",
+        "Applicant Tracking (ATS)",
+        "DomPDF",
+        "Docker",
+        "Docker Compose",
+        "DigitalOcean",
+        "Headless SaaS",
+        "Postman",
+      ],
+      liveLink: "https://www.huntme.org/",
+      githubLink: null,
+      youtubeId: "",
+      desktopReady: true,
+      mobileReady: true,
+      itsClientProject: true,
+    },
+  },
+  // ─────────────────────────────────────────────
+  // 4. Swipe Sale – Local Marketplace Mobile App
+  // ─────────────────────────────────────────────
+  {
+    id: "4",
     title: "Swipe Sale – Local Marketplace Mobile App",
     shortDescription:
       "Swipe-based community marketplace with real-time chat & paid boost",
@@ -147,10 +445,10 @@ Created a secure and engaging community-driven marketplace that significantly re
     },
   },
   // ─────────────────────────────────────────────
-  // 2. Lymetales – Personalized Storybook Platform
+  // 5. Lymetales – Personalized Storybook Platform
   // ─────────────────────────────────────────────
   {
-    id: "2",
+    id: "5",
     title: "Lymetales – Personalized Storybook Platform",
     shortDescription:
       "E-commerce platform for personalized children's storybooks with real-time preview and multi-currency checkout",
@@ -235,10 +533,10 @@ Gave gift-givers a fast, visual way to create a one-of-a-kind keepsake book, whi
     },
   },
   // ─────────────────────────────────────────────
-  // 3. Adventure Rentals Management System
+  // 6. Adventure Rentals Management System
   // ─────────────────────────────────────────────
   {
-    id: "3",
+    id: "6",
     title: "Adventure Rentals Management System",
     shortDescription:
       "Production-ready rental management platform for adventure equipment & vehicle bookings",
@@ -346,10 +644,10 @@ Delivered a unified backend that securely verifies users, processes payments, au
     },
   },
   // ─────────────────────────────────────────────
-  // 4. ChannelGum – Digital Asset Marketplace
+  // 7. ChannelGum – Digital Asset Marketplace
   // ─────────────────────────────────────────────
   {
-    id: "4",
+    id: "7",
     title: "ChannelGum – Digital Asset Marketplace",
     shortDescription:
       "Escrow-protected marketplace to buy and sell YouTube channels, Instagram pages & other digital assets",
@@ -443,10 +741,10 @@ Delivered an end-to-end marketplace that lets creators monetize their channels a
   },
 
   // ─────────────────────────────────────────────
-  // 5. SN Nutrition – Affiliate Wellness Commerce Platform
+  // 8. SN Nutrition – Affiliate Wellness Commerce Platform
   // ─────────────────────────────────────────────
   {
-    id: "5",
+    id: "8",
     title: "SN Nutrition – Affiliate Wellness Commerce Platform",
     shortDescription:
       "Laravel-based nutrition e-commerce platform with personalized product recommendations, live specialist consultations, and an affiliate/partner payout system",
@@ -550,10 +848,10 @@ Delivered a single Laravel codebase that turns a nutrition storefront into a gui
     },
   },
   // ─────────────────────────────────────────────
-  // 6. Cylore Cloth – E-commerce Platform
+  // 9. Cylore Cloth – E-commerce Platform
   // ─────────────────────────────────────────────
   {
-    id: "6",
+    id: "9",
     title: "Cylore Cloth – E-commerce Platform",
     shortDescription:
       "Full-stack clothing e-commerce platform with role-based admin dashboard, product variants, and multi-gateway payment checkout",
@@ -648,10 +946,10 @@ Delivered a scalable, professional e-commerce foundation that pairs Laravel's ba
     },
   },
   // ─────────────────────────────────────────────
-  // 7. Employee Management System
+  // 10. Employee Management System
   // ─────────────────────────────────────────────
   {
-    id: "7",
+    id: "10",
     title: "Employee Management System",
     shortDescription:
       "Advanced HR platform for employee records, attendance, roles & departments",
@@ -747,10 +1045,10 @@ Boosted HR workflow efficiency by automating employee data management, attendanc
     },
   },
   // ─────────────────────────────────────────────
-  // 8. DailySunnah – Islamic Habit Tracker App
+  // 11. DailySunnah – Islamic Habit Tracker App
   // ─────────────────────────────────────────────
   {
-    id: "8",
+    id: "11",
     title: "DailySunnah – Islamic Habit Tracker App",
     shortDescription:
       "React Native mobile app that helps Muslims build daily Sunnah habits with streak tracking, hadith references, and offline access",
@@ -856,10 +1154,10 @@ Delivered a lightweight, offline-capable Islamic habit-tracking app backed by a 
   },
 
   // ─────────────────────────────────────────────
-  // 9. Stand Blog – Role-Based Blogging Platform
+  // 12. Stand Blog – Role-Based Blogging Platform
   // ─────────────────────────────────────────────
   {
-    id: "9",
+    id: "12",
     title: "Stand Blog – Role-Based Blogging Platform",
     shortDescription:
       "Laravel blog platform with custom-built authentication, three-tier role permissions, and a full admin/moderator content workflow",
@@ -960,10 +1258,10 @@ Delivered a self-contained Laravel blogging platform with a hand-built, fully un
   },
 
   // ─────────────────────────────────────────────
-  // 10. Blood Donation Management System
+  // 13. Blood Donation Management System
   // ─────────────────────────────────────────────
   {
-    id: "10",
+    id: "13",
     title: "Blood Donation Management System",
     shortDescription:
       "Core PHP web app that connects blood donors and recipients with donor search, admin management, and donation history tracking",
@@ -1059,10 +1357,10 @@ Delivered a lightweight, framework-free donor management platform that makes it 
   },
 
   // ─────────────────────────────────────────────
-  // 11. Cylore Construction – Construction Service Website
+  // 14. Cylore Construction – Construction Service Website
   // ─────────────────────────────────────────────
   {
-    id: "11",
+    id: "14",
     title: "Cylore Construction – Construction Service Website",
     shortDescription:
       "Full-stack construction brand website with a Laravel API backend and a React admin-managed frontend for services, projects, and testimonials",

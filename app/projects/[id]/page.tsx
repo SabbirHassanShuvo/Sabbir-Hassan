@@ -4,7 +4,18 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { projectsData } from "@/app/data/projects";
 import DetailsImage from "../DetailsImages";
-import { ArrowLeft, Check, TriangleAlert } from "lucide-react";
+import { Magnetic } from "@/app/components/motion/Magnetic";
+import { SpotlightCard } from "@/app/components/motion/SpotlightCard";
+import {
+  ArrowLeft,
+  Check,
+  CheckCircle2,
+  Cpu,
+  Layers,
+  ShieldCheck,
+  TriangleAlert,
+  Zap,
+} from "lucide-react";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -26,12 +37,14 @@ export default async function ProjectPage({ params }: Props) {
       <div className="max-w-7xl mx-auto bg-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl">
         {/* ── Back button ── */}
         <div className="px-4 md:px-8 pt-8">
-          <Link
-            href="/#projects"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/60 hover:text-[#a78bfa] transition-colors duration-200">
-            <ArrowLeft size={14} />
-            Back to Projects
-          </Link>
+          <Magnetic strength={0.25}>
+            <Link
+              href="/#projects"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-white/60 hover:text-[#a78bfa] transition-colors duration-200">
+              <ArrowLeft size={14} />
+              Back to Projects
+            </Link>
+          </Magnetic>
         </div>
 
         {/* ── Hero ── */}
@@ -168,6 +181,77 @@ export default async function ProjectPage({ params }: Props) {
             </div>
           </div>
 
+          {/* Key Features & Capabilities */}
+          {caseStudy.features && caseStudy.features.length > 0 && (
+            <div className="p-6 md:p-8 bg-white/[0.02] backdrop-blur-md border border-white/10 rounded-2xl mb-8 transition-all duration-300 hover:bg-[rgba(167,139,250,0.06)] hover:border-white/20 hover:shadow-[0_8px_32px_rgba(167,139,250,0.12)]">
+              <div className="flex items-center gap-2 mb-6">
+                <Layers size={18} className="text-[#00d4ff]" />
+                <p className="text-xs uppercase tracking-widest text-[#a78bfa]">
+                  Key Features & Capabilities
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {caseStudy.features.map((feature, i) => (
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[#00d4ff]/30 transition-all">
+                    <CheckCircle2
+                      size={16}
+                      className="text-[#00d4ff] shrink-0 mt-0.5"
+                    />
+                    <p className="text-sm text-white/80 leading-relaxed font-light">
+                      {feature}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Engineering Challenges & Solutions */}
+          {caseStudy.challenges && caseStudy.challenges.length > 0 && (
+            <div className="p-6 md:p-8 bg-white/[0.02] backdrop-blur-md border border-white/10 rounded-2xl mb-8 transition-all duration-300 hover:bg-[rgba(167,139,250,0.06)] hover:border-white/20 hover:shadow-[0_8px_32px_rgba(167,139,250,0.12)]">
+              <div className="flex items-center gap-2 mb-6">
+                <Cpu size={18} className="text-[#a78bfa]" />
+                <p className="text-xs uppercase tracking-widest text-[#a78bfa]">
+                  Engineering Challenges & Architecture Solutions
+                </p>
+              </div>
+              <div className="space-y-4">
+                {caseStudy.challenges.map((challenge, i) => (
+                  <div
+                    key={i}
+                    className="p-5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-white/15 transition-all">
+                    <h3 className="text-base text-white font-medium mb-3 flex items-center gap-2.5">
+                      <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#a78bfa]/15 text-[#a78bfa] border border-[#a78bfa]/25">
+                        0{i + 1}
+                      </span>
+                      {challenge.title}
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-3 border-t border-white/5">
+                      <div className="bg-rose-500/[0.03] border border-rose-500/10 rounded-lg p-3.5">
+                        <p className="text-xs uppercase tracking-widest text-rose-400/90 mb-1 font-mono">
+                          Challenge
+                        </p>
+                        <p className="text-xs text-white/60 leading-relaxed">
+                          {challenge.description}
+                        </p>
+                      </div>
+                      <div className="bg-emerald-500/[0.03] border border-emerald-500/10 rounded-lg p-3.5">
+                        <p className="text-xs uppercase tracking-widest text-emerald-400/90 mb-1 font-mono">
+                          Solution
+                        </p>
+                        <p className="text-xs text-white/60 leading-relaxed">
+                          {challenge.solution}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
 
 
           {/* Tech Stack */}
@@ -223,13 +307,15 @@ export default async function ProjectPage({ params }: Props) {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap items-center gap-4 mt-4">
-            <a
-              href={caseStudy.liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 text-xs uppercase tracking-widest bg-[#a78bfa] text-[#0f0f0f] font-semibold rounded-full hover:bg-[#c4b5fd] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(167,139,250,0.3)]">
-              Live Demo ↗
-            </a>
+            <Magnetic strength={0.35}>
+              <a
+                href={caseStudy.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 text-xs uppercase tracking-widest bg-[#a78bfa] text-[#0f0f0f] font-semibold rounded-full hover:bg-[#c4b5fd] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(167,139,250,0.3)]">
+                Live Demo ↗
+              </a>
+            </Magnetic>
 
             {/* GitHub CTA — disabled if client project */}
             {caseStudy.itsClientProject ? (
@@ -249,13 +335,15 @@ export default async function ProjectPage({ params }: Props) {
                 Private Source
               </div>
             ) : (
-              <a
-                href={caseStudy.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 text-xs uppercase tracking-widest border border-[rgba(167,139,250,0.35)] text-[#a78bfa] rounded-full hover:bg-[rgba(167,139,250,0.1)] hover:border-[#a78bfa] hover:scale-[1.02] active:scale-[0.98] transition-all">
-                GitHub ↗
-              </a>
+              <Magnetic strength={0.35}>
+                <a
+                  href={caseStudy.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3 text-xs uppercase tracking-widest border border-[rgba(167,139,250,0.35)] text-[#a78bfa] rounded-full hover:bg-[rgba(167,139,250,0.1)] hover:border-[#a78bfa] hover:scale-[1.02] active:scale-[0.98] transition-all">
+                  GitHub ↗
+                </a>
+              </Magnetic>
             )}
           </div>
         </div>
