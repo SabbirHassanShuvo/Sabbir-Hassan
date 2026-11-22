@@ -205,9 +205,9 @@ export function AboutSection({ id = "about" }: { id?: string }) {
             </p>
             <p className="text-white/55 leading-relaxed text-sm mb-8 relative">
               I started my journey with a Diploma in CSE from{" "}
-              <span className="text-white/80">BGIFT Institute</span>, interned
-              at KaizenITBD, and now build full-scale products at Softvence
-              Agency — focused on clean architecture, secure authentication, and
+              <span className="text-white/80">BGIFT Institute</span>, worked
+              at Softvence Agency, and now build enterprise-grade software solutions at Prediction
+              Infotech Limited — focused on clean architecture, secure authentication, and
               performance-first backends.
             </p>
 

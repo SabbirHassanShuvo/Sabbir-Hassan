@@ -442,3 +442,61 @@ body::after {
     font-size: 9px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   KINETIC CURSOR & MOTION STYLES
+═══════════════════════════════════════════════════════════ */
+#cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #00d4ff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease,
+    background-color 0.2s ease;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.7);
+}
+
+#cursor.hover {
+  width: 14px;
+  height: 14px;
+  background: #a78bfa;
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.9);
+}
+
+#cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(0, 212, 255, 0.35);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease,
+    background-color 0.3s ease;
+  backdrop-filter: blur(1px);
+}
+
+#cursor-ring.hover {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(167, 139, 250, 0.65);
+  background-color: rgba(167, 139, 250, 0.08);
+}
+
+#cursor.clicked {
+  transform: translate3d(0, 0, 0) translate(-50%, -50%) scale(0.7) !important;
+}
+
+#cursor-ring.clicked {
+  transform: translate3d(0, 0, 0) translate(-50%, -50%) scale(0.85) !important;
+}
+

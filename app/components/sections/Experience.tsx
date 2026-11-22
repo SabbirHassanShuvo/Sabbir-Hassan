@@ -28,6 +28,15 @@ function ExpCard({
       {/* Left — Date & Company */}
       <div className="md:col-span-4">
         <div className="md:sticky top-8">
+          {exp.logo && (
+            <div className="mb-4 inline-flex items-center justify-center px-3 py-2 rounded-xl bg-white border border-white/20 shadow-md h-14 w-auto max-w-[180px]">
+              <img
+                src={exp.logo}
+                alt={exp.company}
+                className="max-h-9 max-w-full w-auto object-contain"
+              />
+            </div>
+          )}
           <p
             className="text-xs uppercase tracking-widest mb-1"
             style={{ color: "#00d4ff" }}>
@@ -35,17 +44,32 @@ function ExpCard({
           </p>
           <p className="text-2xl font-light text-white">{exp.company}</p>
           <p style={{ color: "#a78bfa" }}>{exp.jobTitle}</p>
-          {exp.type && (
-            <span
-              className="inline-block mt-3 px-3 py-1 text-xs rounded-full"
-              style={{
-                background: "rgba(0,212,255,0.08)",
-                border: "1px solid rgba(0,212,255,0.25)",
-                color: "#00d4ff",
-              }}>
-              {exp.type}
-            </span>
+          {exp.location && (
+            <p className="text-xs text-white/40 mt-1">{exp.location}</p>
           )}
+          <div className="flex flex-wrap items-center gap-2 mt-3">
+            {exp.type && (
+              <span
+                className="inline-block px-3 py-1 text-xs rounded-full"
+                style={{
+                  background: "rgba(0,212,255,0.08)",
+                  border: "1px solid rgba(0,212,255,0.25)",
+                  color: "#00d4ff",
+                }}>
+                {exp.type}
+              </span>
+            )}
+            {exp.website && (
+              <a
+                href={exp.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1 text-xs rounded-full border border-white/10 bg-white/[0.04] text-white/70 hover:text-cyan-400 hover:border-cyan-400/30 transition-all">
+                <span>Website</span>
+                <span className="text-[10px]">↗</span>
+              </a>
+            )}
+          </div>
         </div>
       </div>
 
